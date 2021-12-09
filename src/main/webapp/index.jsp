@@ -4,12 +4,12 @@
 <html lang="es">
 
 <head>
-	<jsp:include page="partials/encabezado.jsp"></jsp:include>
+<jsp:include page="partials/encabezado.jsp"></jsp:include>
 </head>
 
 <body style="background-color: #0A0A0A">
 	<jsp:include page="partials/nav.jsp"></jsp:include>
-	
+
 	<div class="container-fluid pb-4">
 		<div id="carouselExampleControls" class="carousel slide"
 			data-bs-ride="carousel">
@@ -30,7 +30,7 @@
 				</div>
 
 				<div class="carousel-item contenedor-imagen">
-				<img src="assets\imagenes\degustación centrada.png"
+					<img src="assets\imagenes\degustación centrada.png"
 						class="d-block contenedor-imagen" alt="4 preferencia">
 				</div>
 			</div>
@@ -65,6 +65,7 @@
 		<section class="container mt-5 mb-5">
 
 			<!-- Promociones-->
+			<h3 id="promociones" class="text-center bg-warning mt-4 mb-4">PROMOCIONES</h3>
 			<div class="row row-cols-1 row-cols-md-3 g-5 responsive">
 				<div class="col">
 					<div class="card h-100">
@@ -199,10 +200,11 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<!-- Atracciones-->
-			<div class="row row-cols-1 row-cols-md-3 g-5">
-				
+			<h3 id="atracciones" class="text-center bg-warning mt-4 mb-4">ATRACCIONES</h3>
+			<div class="row row-cols-1 row-cols-md-4 g-5">
+
 				<div class="col">
 					<div class="card h-100">
 						<img src="assets/imagenes/Moria2.jpg"
@@ -478,7 +480,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="modal fade" id="PromoDegustacion" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
