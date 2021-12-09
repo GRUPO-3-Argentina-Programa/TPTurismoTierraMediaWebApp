@@ -1,0 +1,35 @@
+@charset "UTF-8"; 
+
+:root{
+
+
+--miRosa: ;
+--miAmarillo: #5b2333;
+--miVioletaoscuro: #16001eff;
+--miGris: #6b818cff;
+--miPetroleo: #00798cff;
+
+--colorBase: var(--miAmarillo)
+--contrasteBse: var(--Mipetroleo)
+}
+
+.bg-miPrincipal{
+    background-color: var(--colorBase);
+}
+
+.bg-contraste{
+    background-color: var(--contrasteBase);
+}
+
+
+section.font {
+  font-family: Amatic Sc;
+ text-align: center; 
+  border: 1px solid black;
+  
+ }
+ body {
+ background-color: miAmarillo;
+ }
+ 
+
