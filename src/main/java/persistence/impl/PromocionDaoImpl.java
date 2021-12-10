@@ -15,27 +15,34 @@ import model.PromocionAxB;
 import model.PromocionPorcentual;
 import persistence.PromocionDao;
 import persistence.commons.ConnectionProvider;
+import persistence.commons.MissingDataException;
 
 public class PromocionDaoImpl implements PromocionDao {
 
 	static List<Atraccion> atraccionesDePromo = null;
 
-	public static List<Promocion> findAllPromo() throws SQLException {
+	public List<Promocion> findAll() {
+		try {
 		String query = "SELECT * FROM promociones";
 		Connection conn = ConnectionProvider.getConnection();
 
 		PreparedStatement statement = conn.prepareStatement(query);
 
-		ResultSet result = statement.executeQuery();
+		ResultSet result;
+		
+			result = statement.executeQuery();
 
-		List<Promocion> promocion = new LinkedList<Promocion>();
-		while (result.next()) {
+			List<Promocion> promocion = new LinkedList<Promocion>();
+			while (result.next()) {
 
-			promocion.add(toTipoPromocion(result));
+				promocion.add(toTipoPromocion(result));
 
+			}
+
+			return promocion;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
 		}
-
-		return promocion;
 	}
 
 	private static Promocion toTipoPromocion(ResultSet result) throws SQLException {
@@ -127,15 +134,8 @@ public class PromocionDaoImpl implements PromocionDao {
 		return promoId;
 	}
 
-	
 	@Override
 	public Promocion find(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Promocion> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -152,11 +152,10 @@ public class PromocionDaoImpl implements PromocionDao {
 		return 0;
 	}
 
-
 	@Override
 	public int delete(Promocion t) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+
 }
