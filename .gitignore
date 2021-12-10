@@ -1,2 +1,7 @@
 .setting
+<<<<<<< HEAD
 \src\main\resources\env.properties
+=======
+bin
+env.properties
+>>>>>>> login

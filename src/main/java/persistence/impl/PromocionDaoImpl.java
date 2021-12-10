@@ -148,5 +148,3 @@ public class PromocionDaoImpl implements PromocionDao{
 	
 }
 	
-
-

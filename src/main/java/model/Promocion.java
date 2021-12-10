@@ -69,7 +69,7 @@ public class Promocion implements Sugerible {
 	}
 
 	public String getNombre() {
-		return "Esto es una promoción que incluye: " + Arrays.toString(getNombresDeAtracciones());
+		return "Esto es una promociÃ³n que incluye: " + Arrays.toString(getNombresDeAtracciones());
 	}
 
 

@@ -84,7 +84,7 @@ public class AtraccionDaoImpl implements AtraccionDao {
 		
 	}
 	
-	public static int updateCupo(Atraccion atraccion, Connection conn) throws SQLException {
+	public int updateCupo(Atraccion atraccion, Connection conn) throws SQLException {
 		String query = "UPDATE atracciones SET Cupo = ? WHERE NOMBRE LIKE ?";
 		
 		PreparedStatement statement = conn.prepareStatement(query);
