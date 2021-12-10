@@ -83,7 +83,7 @@ public class AtraccionDaoImpl implements AtraccionDao {
 		
 	}
 	
-	public static int updateCupo(Atraccion atraccion, Connection conn) throws SQLException {
+	public int updateCupo(Atraccion atraccion, Connection conn) throws SQLException {
 		String query = "UPDATE atracciones SET Cupo = ? WHERE NOMBRE LIKE ?";
 		
 		PreparedStatement statement = conn.prepareStatement(query);
@@ -101,5 +101,29 @@ public class AtraccionDaoImpl implements AtraccionDao {
 		atracciones.addAll(a.findAll());
 		System.out.println(atracciones);
 	}
+
+	
+	
+	@Override
+	public int countAll() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+
+	@Override
+	public int insert(Atraccion t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+		
+	
+	@Override
+	public int delete(Atraccion t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 		
 }
