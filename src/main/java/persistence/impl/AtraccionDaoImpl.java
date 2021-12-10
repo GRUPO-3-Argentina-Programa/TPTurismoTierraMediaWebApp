@@ -15,12 +15,13 @@ import model.Atraccion;
 
 public class AtraccionDaoImpl implements AtraccionDao {
 
-	protected static Atraccion toAtraccion(ResultSet result) throws SQLException {
+	protected  Atraccion toAtraccion(ResultSet result) throws SQLException {
 		return new Atraccion(result.getString(1), result.getInt(2), result.getString(3),
 				result.getDouble(4), result.getInt(5), result.getInt(6));
 	}
 
-	public List<Atraccion>findAll() {
+	public  List<Atraccion>findAll() {
+		
 		try {
 			String query = "SELECT * FROM atracciones";
 			Connection conn= ConnectionProvider.getConnection();

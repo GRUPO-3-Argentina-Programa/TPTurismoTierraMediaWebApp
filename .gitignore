@@ -1,3 +1,2 @@
 .setting
-.bin
-env.properties
+/env.properties
