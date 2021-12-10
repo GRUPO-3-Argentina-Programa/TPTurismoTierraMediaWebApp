@@ -28,6 +28,7 @@ public class Usuario {
 		this.id = id;
 		this.nombre = nombre;
 		this.passwordHash = passwordHash;
+		this.admin = admin;
 		this.presupuesto = presupuesto;
 		this.tiempo = tiempo;
 		this.preferencia = preferencia;
