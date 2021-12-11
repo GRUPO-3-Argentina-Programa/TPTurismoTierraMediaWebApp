@@ -43,12 +43,7 @@
 								<button type="submit"
 									class="form-control btn btn-primary submit px-3">Entrar</button>
 							</div>
-							<div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Recuerdame<input type="checkbox" checked> <span
-										class="checkmark"></span>
-									</label>
-								</div>
+							<div class="form-group d-md-flex">								
 								<div class="w-50 text-md-right">
 									<a href="index.jsp" style="color: #fff">Volver a inicio</a>
 								</div>

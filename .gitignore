@@ -1,7 +1,13 @@
-.setting
-<<<<<<< HEAD
+.settings
 \src\main\resources\env.properties
-=======
 bin
+<<<<<<< HEAD
+
+=======
 env.properties
 >>>>>>> login
+/target/
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> fa279b25b839af88504735fc731e54c666353d3d

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Atraccion;
-import persistence.atraccion.AtraccionDao;
+import persistence.AtraccionDao;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
 

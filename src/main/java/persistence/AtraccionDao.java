@@ -1,4 +1,4 @@
-package persistence.atraccion;
+package persistence;
 
 import model.Atraccion;
 import persistence.commons.GenericDAO;

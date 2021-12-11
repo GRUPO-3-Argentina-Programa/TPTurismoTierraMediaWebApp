@@ -18,8 +18,10 @@ import services.UsuarioService;
 
 
 
-  @WebServlet("/admin/listar")
+
+  @WebServlet("/listar.adm")
 public class ListAdminServelt extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 	private AtraccionService atraccionService;
 	private PromocionService promocionService;
