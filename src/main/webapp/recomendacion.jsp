@@ -26,8 +26,6 @@
 						<div class="card-footer">
 							<small class="text-muted">Precio:
 								${recomendacion.getCosto()} monedas</small>
-							<small class="text-muted">Precio: ${recomendacion.getCosto()}
-								monedas</small>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted">Duración:
