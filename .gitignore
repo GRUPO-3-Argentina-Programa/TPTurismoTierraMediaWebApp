@@ -1,8 +1,4 @@
-.setting
-<<<<<<< HEAD
+.settings
 \src\main\resources\env.properties
-=======
 bin
-env.properties
->>>>>>> login
-/target/
+
