@@ -12,7 +12,7 @@
 				</div>
 				<div class="container-fluid" id="nav2">
 					<div class="row">
-						<a href= "atracciones/listar" class="col">Atracciones</a>
+						<a href= "recomendacion/listar" class="col">Atracciones</a>
 						<div class="col">
 							<a href="login.jsp">Entrar</a>
 						</div>
