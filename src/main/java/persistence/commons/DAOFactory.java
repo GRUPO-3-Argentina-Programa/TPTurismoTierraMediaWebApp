@@ -1,8 +1,8 @@
 package persistence.commons;
 
+import persistence.AtraccionDao;
 import persistence.UsuarioDao;
-import persistence.atraccion.AtraccionDao;
-import persistence.atraccion.PromocionDao;
+import persistence.PromocionDao;
 import persistence.impl.AtraccionDaoImpl;
 import persistence.impl.PromocionDaoImpl;
 import persistence.impl.UsuarioDaoImpl;

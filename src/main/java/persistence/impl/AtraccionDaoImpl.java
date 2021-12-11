@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import persistence.atraccion.AtraccionDao;
+import persistence.AtraccionDao;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
 import model.Atraccion;

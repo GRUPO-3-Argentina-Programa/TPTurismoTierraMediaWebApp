@@ -11,7 +11,7 @@ import java.util.List;
 import model.Atraccion;
 import model.Promocion;
 import model.PromocionPorcentual;
-import persistence.atraccion.PromocionDao;
+import persistence.PromocionDao;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
 import model.PromocionAxB;

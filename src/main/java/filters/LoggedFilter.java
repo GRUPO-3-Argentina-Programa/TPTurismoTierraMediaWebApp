@@ -12,7 +12,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import model.Usuario;
 
-@WebFilter(urlPatterns = "/atracciones/listar.do")
+@WebFilter(urlPatterns = "*.do")
 public class LoggedFilter implements Filter {
 
 	@Override

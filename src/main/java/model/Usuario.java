@@ -9,6 +9,12 @@ import persistence.impl.UsuarioDaoImpl;
 import utils.Crypt;
 
 public class Usuario {
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", presupuesto=" + presupuesto + ", tiempo=" + tiempo + ", preferencia="
+				+ preferencia + ", TIEMPO=" + TIEMPO + ", PRESUPUESTO=" + PRESUPUESTO + "]";
+	}
+
 	private Integer id;
 	private String nombre, passwordHash;
 	private double presupuesto;

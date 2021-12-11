@@ -12,7 +12,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import model.Usuario;
 
-@WebFilter(urlPatterns = "/admin/listar.do")
+@WebFilter(urlPatterns = "*.adm")
 public class AdminFilter implements Filter {
 
 	@Override
@@ -25,7 +25,7 @@ public class AdminFilter implements Filter {
 		} else {
 			request.setAttribute("flash", "Por favor, ingresa al sistema");
 
-			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/webapp/login.jsp");
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
 		}
 		

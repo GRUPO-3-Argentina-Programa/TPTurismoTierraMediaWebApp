@@ -16,7 +16,7 @@ import services.PromocionService;
 
 
 
-  @WebServlet("/admin/listar.do")
+  @WebServlet("/listar.adm")
 public class ListPromocionAdminServelt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AtraccionService atraccionService;
