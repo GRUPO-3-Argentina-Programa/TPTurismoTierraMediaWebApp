@@ -145,6 +145,15 @@ public class PromocionDaoImpl implements PromocionDao{
 		}
 	}
 
+
+
+
+	@Override
+	public int insert(Promocion t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }
 	

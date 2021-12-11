@@ -1,18 +1,21 @@
 package model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 
 public class Atraccion implements Sugerible {
- 	private Integer costeDeVisita;
+ 	private Double costeDeVisita;
 	private Double promedioDeTiempo;
 	private Integer cupoDePersonas;
 	private String nombre;
 	private String tipo;
 	private Integer idAtraccion;
+	private HashMap<String, String> errors;
 
-	public Atraccion(String nombre, int costo,  String tipo, double tiempo, int cupo, int id) {
+	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo, int id) {
 		this.nombre = nombre;
 		this.costeDeVisita = costo;
 		this.promedioDeTiempo = tiempo;
@@ -95,6 +98,29 @@ public class Atraccion implements Sugerible {
 		return null;
 	}
 
+	
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (costeDeVisita <= 0) {
+			errors.put("costo", "Debe ser positivo");
+		}
+		if (promedioDeTiempo <= 0) {
+			errors.put("duration", "Debe ser positivo");
+		}
+		if (cupoDePersonas <= 0) {
+			errors.put("capacity", "Debe ser positivo");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
 }
 
 

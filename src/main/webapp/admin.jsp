@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-	<jsp:include page="partials/encabezado.jsp"></jsp:include>
+	<jsp:include page="/partials/encabezado.jsp"></jsp:include>
 </head>
 
 <body>
@@ -33,6 +33,10 @@
 		</div>
 	</nav>
 
+<a href="Create1.jsp" class="btn btn-primary"
+					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
+				</a>
+
 <section class="row container-fluid">
 
 		<section class="container mt-5 mb-5">
@@ -52,7 +56,8 @@
 						<td> <c:out value="${atracciones.getNombre() }"></c:out></td>
 						<td><c:out value="${atracciones.getTiempoTotal() }"></c:out></td>
 						<td><c:out value="${atracciones.getCosto() }"></c:out></td>
-						<td>Modificar / Eliminar</td>
+						<td>Modificar </td>
+						<td>Eliminar </td>
 					</tr>
 					</c:forEach>
 							</tbody>
@@ -60,6 +65,8 @@
 
 		</section>
 		</section>
+		
+		<button type="button" class="btn btn-secondary btn-lg">Crear Nueva Promocion</button>
 		
 		<section class="row container-fluid">
 
@@ -82,7 +89,43 @@
 						<td><c:out value="${promocion.getTipoAtraccion() }"></c:out></td>
 						<td><c:out value="${promocion.getTiempoTotal() }"></c:out></td>
 						<td><c:out value="${promocion.getCosto() }"></c:out></td>
-						<td>Modificar / Eliminar</td>
+						<td>Modificar </td>
+						<td>Eliminar </td>
+					</tr>
+					</c:forEach>
+							</tbody>
+			</table>
+
+		</section>
+		</section>
+		
+				<button type="button" class="btn btn-secondary btn-lg">Crear Nuevo Usuario</button>
+				
+				<section class="row container-fluid">
+
+		<section class="container mt-5 mb-5">
+
+			<table class="table table-striped table-dark table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Password</th>
+						<th scope="col">Tiempo</th>
+						<th scope="col">Presupuesto</th>
+						<th scope="col">Administrador</th>
+						<th scope="col">Acción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items= "${ usuarios }" var="usuario"> 
+					<tr>
+						<td> <c:out value="${usuario.getNombre() }"></c:out></td>
+						<td><c:out value="${usuario.getPassword() }"></c:out></td>
+						<td><c:out value="${usuario.getTIEMPO() }"></c:out></td>
+						<td><c:out value="${usuario.getPRESUPUESTO()}"></c:out></td>
+						<td><c:out value="${usuario.isAdmin()}"></c:out></td>
+						<td>Modificar </td>
+						<td>Eliminar </td>
 					</tr>
 					</c:forEach>
 							</tbody>

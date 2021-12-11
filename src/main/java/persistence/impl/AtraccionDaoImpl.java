@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Atraccion;
 import persistence.atraccion.AtraccionDao;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
-import model.Atraccion;
 
 
 public class AtraccionDaoImpl implements AtraccionDao {
@@ -94,6 +94,30 @@ public class AtraccionDaoImpl implements AtraccionDao {
 
 		return statement.executeUpdate();
 
+	}
+	
+
+	
+	@Override
+	public int insert(Atraccion atraccion) {
+		try {
+			String sql = "INSERT INTO ATRACCIONES (Nombre, COSTO, TIPO, TIEMPO, CUPO) VALUES (?, ?, ?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+       
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int i = 1;
+			statement.setString(i++, atraccion.getNombre());
+			statement.setDouble(i++, atraccion.getCosto());
+			statement.setString(i++, atraccion.getTipoAtraccion());
+			statement.setDouble(i++, atraccion.getTiempoTotal()); 
+			statement.setInt(i++, atraccion.getCupo());
+		//	statement.setInt(i++, atraccion.getId());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 	
 	public static void main(String[] args) {

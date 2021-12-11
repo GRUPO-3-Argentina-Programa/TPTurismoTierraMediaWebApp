@@ -11,22 +11,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import model.Promocion;
+import model.Usuario;
 import services.AtraccionService;
 import services.PromocionService;
+import services.UsuarioService;
 
 
 
   @WebServlet("/admin/listar")
-public class ListPromocionAdminServelt extends HttpServlet {
+public class ListAdminServelt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AtraccionService atraccionService;
 	private PromocionService promocionService;
+	private UsuarioService usuarioService;
+	
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.promocionService = new PromocionService();
 		this.atraccionService = new AtraccionService();
+		this.usuarioService = new UsuarioService();
 	}
 
 	@Override
@@ -37,6 +42,9 @@ public class ListPromocionAdminServelt extends HttpServlet {
 		List<Atraccion> atracciones = atraccionService.list();
 		req.setAttribute("atracciones", atracciones);
 
+		List<Usuario> usuarios = usuarioService.list();
+		req.setAttribute("usuarios", usuarios);
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
 		dispatcher.forward(req, resp);
 
