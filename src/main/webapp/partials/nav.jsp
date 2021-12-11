@@ -3,6 +3,7 @@
 <nav class="navbar navbar-expand-lg p-3 mb-2">
 	<div class="container-fluid">
 
+<<<<<<< HEAD
 		<section class="container-fluid text-center ">
 			<div id="titulo" class="mb-0">
 				<h1 class="display-1">Turismo en la tierra media</h1>
@@ -12,6 +13,24 @@
 			</div>
 			<div class="container-fluid" id="nav2">
 				<div class="row">
+=======
+			<section class="container-fluid text-center ">
+				<div id="titulo" class="mb-0">
+					<h1 class="display-1">Turismo en la tierra media</h1>
+					<p class="lead  mb-0">Bienvenidos al primer Parque Tematico
+						sobre la Tierra Media de la Argentina, inspirado en el gran J.R.R
+						Tolkien</p>
+				</div>
+				<div class="container-fluid" id="nav2">
+					<div class="row">
+						<a href= "recomendacion/listar" class="col">Atracciones</a>
+						<div class="col">
+							<a href="login.jsp">Entrar</a>
+						</div>
+						<div class="col">
+							<a href="itinerario.html">Mi itinerario</a>
+						</div>
+>>>>>>> fa279b25b839af88504735fc731e54c666353d3d
 
 					<c:choose>
 						<c:when test="${!user.isNull()}">
