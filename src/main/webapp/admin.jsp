@@ -52,13 +52,19 @@
 				</thead>
 				<tbody>
 					<c:forEach items= "${ atracciones }" var="atracciones"> 
+					
 					<tr>
 						<td> <c:out value="${atracciones.getNombre() }"></c:out></td>
 						<td><c:out value="${atracciones.getTiempoTotal() }"></c:out></td>
 						<td><c:out value="${atracciones.getCosto() }"></c:out></td>
-						<td>Modificar </td>
-						<td>Eliminar </td>
+						<td> <a href = "atraccion/borrar.adm?id=${ atracciones.getId() }">Borrar</a>
+						<a href="atraccion/editar.adm?id=${atracciones.getId()}"
+									class="btn btn-light rounded-0" role="button"><i
+									class="bi bi-pencil-fill"></i>Editar</a>
+						</td>
+					
 					</tr>
+					
 					</c:forEach>
 							</tbody>
 			</table>

@@ -120,6 +120,45 @@ public class AtraccionDaoImpl implements AtraccionDao {
 			throw new MissingDataException(e);
 		}
 	}
+	
+	@Override
+	public void update(Atraccion attraction) {
+		try {
+			String sql = "UPDATE ATTRACTIONS SET nombre = ?, costo = ?, tipo = ?, tiempo = ?, cupo = ? WHERE atraccion_ID = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int i = 1;
+			statement.setString(i++, attraction.getNombre());
+			statement.setDouble(i++, attraction.getCosto());
+			statement.setString(i++, attraction.getTipoAtraccion());
+			statement.setDouble(i++, attraction.getTiempoTotal());
+			statement.setInt(i++, attraction.getCupo());
+			statement.setInt(i++, attraction.getId());
+			int rows = statement.executeUpdate();
+
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	@Override
+	public int delete (int id) {
+		try {
+			String sql = "UPDATE atracciones SET activo = 0 WHERE atraccion_id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, id);
+			
+			int rows = statement.executeUpdate();
+			return rows;
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		} 
+	}
 
 	public static void main(String[] args) {
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
