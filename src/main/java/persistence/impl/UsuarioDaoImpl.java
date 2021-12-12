@@ -12,7 +12,6 @@ import model.Promocion;
 import model.Sugerible;
 import model.Usuario;
 import model.nullObjets.NullUser;
-import persistence.ItinerarioDao;
 import persistence.UsuarioDao;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
@@ -147,7 +146,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		
 		try {
 			conn.setAutoCommit(false);
-			ItinerarioDao.insert(usuario, sugerencia, conn);
+			ItinerarioDaoImpl.insert(usuario, sugerencia, conn);
 			UsuarioDaoImpl.update(usuario);
 			if(!sugerencia.esPromo()) {
 				AtraccionDaoImpl.updateCupo((Atraccion) sugerencia);
