@@ -35,6 +35,10 @@
 							<small class="text-muted">Duración:
 								${atraccion.getCupo()} horas</small>
 						</div>
+						<div class="card-footer">
+						<a href="buy.do?id=${attraction.getId()}"
+										class="btn btn-success rounded" role="button">Comprar</a>
+						</div>
 					</div>
 				</div>
 			</c:forEach>

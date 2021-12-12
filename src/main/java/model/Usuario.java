@@ -63,14 +63,12 @@ public class Usuario {
 		return this.itinerario;
 	}
 
-	public void aceptarSugerencia(Sugerible sugerencia) throws SQLException {
+	public void aceptarSugerencia(Sugerible sugerencia) {
 		this.itinerario.add(sugerencia);
 		this.setTiempo(sugerencia.getTiempoTotal());
 		this.setPresupuesto(sugerencia.getCosto());
 		this.totalPagar += sugerencia.getCosto();
 		this.totalTiempo += sugerencia.getTiempoTotal();
-		UsuarioDaoImpl.guardar(this, sugerencia);
-		UsuarioDaoImpl.update(this);
 	}
 	
 	public double getTotalPagar(List<Sugerible> itinerario) {
@@ -109,9 +107,20 @@ public class Usuario {
 	}
 
 	public boolean puedeComprar(Sugerible sugerencia) {
-		return (sugerencia.getCosto() <= this.presupuesto && sugerencia.getTiempoTotal() <= this.tiempo
+		return (this.leAlcanza(sugerencia) 
+				&& this.tieneTiempo(sugerencia)
 				&& (!estaIncluido(sugerencia)));
 	}
+	
+	public boolean leAlcanza(Sugerible sugerencia) {
+		return (sugerencia.getCosto() <= this.presupuesto);
+	}
+	
+	public boolean tieneTiempo(Sugerible sugerencia) {
+		return (sugerencia.getCosto() <= this.presupuesto);
+	}
+	
+	
 
 	private boolean estaIncluido(Sugerible buscado) {
 
@@ -156,7 +165,7 @@ public class Usuario {
 		return PRESUPUESTO;
 	}
 
-	public double getId() {
+	public Integer getId() {
 		return id;
 	}
 

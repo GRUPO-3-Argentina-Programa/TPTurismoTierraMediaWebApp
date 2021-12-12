@@ -10,6 +10,22 @@
 
 <body style="background-color: #0A0A0A">
 	<jsp:include page="partials/nav.jsp"></jsp:include>
+
+	<c:if test="${flash != null}">
+		<div class="alert alert-danger">
+			<p>
+				<c:out value="${flash}" />
+				<c:if test="${errors != null}">
+					<ul>
+						<c:forEach items="${errors}" var="entry">
+							<li><c:out value="${entry.getValue()}"></c:out></li>
+						</c:forEach>
+					</ul>
+				</c:if>
+			</p>
+		</div>
+	</c:if>
+
 	<section class="container mt-5 mb-5">
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 			<c:forEach items="${recomendaciones}" var="recomendacion">
@@ -30,6 +46,10 @@
 						<div class="card-footer">
 							<small class="text-muted">Duración:
 								${recomendacion.getTiempoTotal()} horas</small>
+						</div>
+						<div class="card-footer">
+							<a href="buy.do?id=${recomendacion.getId()}"
+								class="btn btn-success rounded" role="button">Comprar</a>
 						</div>
 					</div>
 				</div>

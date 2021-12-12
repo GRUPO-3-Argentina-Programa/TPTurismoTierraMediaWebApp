@@ -11,9 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import services.AtraccionService;
 
-
-
-  @WebServlet("/admin/crear.do")
+@WebServlet("/crear.do")
 public class CrearAtraccionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AtraccionService atraccionService;
@@ -38,16 +36,15 @@ public class CrearAtraccionServlet extends HttpServlet {
 		String tipo = req.getParameter("tipo");
 		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
-		Integer id = Integer.parseInt(req.getParameter("Id"));  
-		
-		Atraccion atraccion = atraccionService.create(nombre, costo,  tipo,  tiempo, cupo,  id);
+		Integer id = Integer.parseInt(req.getParameter("Id"));
+
+		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo, id);
 		if (atraccion.isValid()) {
-			resp.sendRedirect("listar");
+			resp.sendRedirect("listar.adm");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/admin/Create1.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Create1.jsp");
 			dispatcher.forward(req, resp);
 		}
 

@@ -13,7 +13,6 @@ import model.Sugerible;
 import model.Usuario;
 import model.nullObjets.NullUser;
 import persistence.ItinerarioDao;
-import persistence.PromocionDao;
 import persistence.UsuarioDao;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
@@ -39,7 +38,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	public static int update(Usuario user) {
 		try {
-			String sql = "UPDATE USERS SET COINS = ?, TIME = ? WHERE ID = ?";
+			String sql = "UPDATE Usuarios SET presupuesto = ?, tiempoDisponible = ? WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -56,7 +55,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	public int delete(Usuario user) {
 		try {
-			String sql = "DELETE FROM USERS WHERE USERNAME = ?";
+			String sql = "DELETE FROM Usuarios WHERE nombre = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -151,8 +150,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			ItinerarioDao.insert(usuario, sugerencia, conn);
 			UsuarioDaoImpl.update(usuario);
 			if(!sugerencia.esPromo()) {
-				AtraccionDaoImpl atrd = new AtraccionDaoImpl();
-				atrd.updateCupo((Atraccion) sugerencia, conn);
+				AtraccionDaoImpl.updateCupo((Atraccion) sugerencia);
 			} else {
 				PromocionDaoImpl prod = new PromocionDaoImpl();
 				prod.updateCupo((Promocion) sugerencia, conn);

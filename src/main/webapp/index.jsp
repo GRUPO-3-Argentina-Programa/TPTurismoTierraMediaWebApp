@@ -536,7 +536,8 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Comprar</button>
+					<a href="buy.do?id=${attraction.id}"
+										class="btn btn-success rounded" role="button">Comprar</a>
 				</div>
 			</div>
 		</div>
