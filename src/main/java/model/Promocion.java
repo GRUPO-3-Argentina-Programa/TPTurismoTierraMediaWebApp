@@ -10,8 +10,10 @@ public class Promocion implements Sugerible {
 	protected double sumaCostos = 0;
 	protected String[] nombresDeAtracciones;
 	private int id;
+	private String nombre;
 
-	public Promocion(String tipo, List<Atraccion> atraccionesDePromo, int Id) {
+	public Promocion(String nombre, String tipo, List<Atraccion> atraccionesDePromo, int Id) {
+		this.nombre = nombre;
 		this.tipoAtraccion = tipo;
 		this.atraccionesDePromo = new LinkedList<Atraccion>(atraccionesDePromo);
 		this.id = Id;
@@ -69,7 +71,11 @@ public class Promocion implements Sugerible {
 	}
 
 	public String getNombre() {
-		return "Esto es una promoción que incluye: " + Arrays.toString(getNombresDeAtracciones());
+		return this.nombre;
+	}
+	
+	public String getNombreAtracciones() {
+		return "Esto promoción que incluye: " + Arrays.toString(getNombresDeAtracciones());
 	}
 
 

@@ -15,7 +15,7 @@ import model.Sugerible;
 import model.Usuario;
 import services.ItinerarioService;
 
-@WebServlet("/usuario/itinerario.do")
+@WebServlet("/itinerario.do")
 public class ListItinerarioServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 226781629828058871L;

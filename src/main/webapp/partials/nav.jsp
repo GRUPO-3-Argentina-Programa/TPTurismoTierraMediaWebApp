@@ -21,7 +21,7 @@
 
 					<c:if test="${user!=null}">
 						<div class="col">
-							<a href="usuario/itinerario.do">Mi itinerario</a>
+							<a href="itinerario.do">Mi itinerario</a>
 						</div>
 						<div class="col">
 							<c:set var="currentUrl" value="${request.getRequestURI()}"/>

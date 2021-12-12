@@ -6,8 +6,8 @@ import java.util.List;
 
 public class PromocionAbs extends Promocion {
 
-	public PromocionAbs(String tipo, List<Atraccion> atraccionesDePromo, double precio, int id) {
-		super(tipo, atraccionesDePromo,id);
+	public PromocionAbs(String nombre,  String tipo, List<Atraccion> atraccionesDePromo, double precio, int id) {
+		super(nombre, tipo, atraccionesDePromo,id);
 		this.sumaCostos = precio;
 		this.tiempoTotal = super.getTiempoTotal();
 	}

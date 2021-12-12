@@ -11,7 +11,7 @@
 <body style="background-color: #0A0A0A">
 	<jsp:include page="partials/nav.jsp"></jsp:include>
 	<section class="container mt-5 mb-5">
-	<h2>Su itinerario incluye:</h2>
+		<h2 class="text-white">Su itinerario incluye:</h2>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 			<c:forEach items="${sugeribles}" var="sugerible">
 				<div class="col">
@@ -25,8 +25,8 @@
 								content is a little bit longer.</p>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">Precio:
-								${sugerible.getCosto()} monedas</small>
+							<small class="text-muted">Precio: ${sugerible.getCosto()}
+								monedas</small>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted">Duración:
@@ -36,6 +36,14 @@
 				</div>
 			</c:forEach>
 		</div>
+		<ul class="list-group list-group-horizontal mt-4">
+			<li class="list-group-item list-group-item-primary">Costo total:
+				${user.getTotalPagar(sugeribles) }monedas</li>
+			<li class="list-group-item list-group-item-primary">Tiempo
+				necesario: ${user.getTotalTiempo(sugeribles) }horas</li>
+		</ul>
+
 	</section>
+
 </body>
 </html>

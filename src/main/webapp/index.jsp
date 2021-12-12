@@ -67,151 +67,37 @@
 			<!-- Promociones-->
 			<h3 id="promociones" class="text-center bg-warning mt-4 mb-4">PROMOCIONES</h3>
 			<div class="row row-cols-1 row-cols-md-3 g-5 responsive">
-				<div class="col">
-					<div class="card h-100">
-						<div id="carouselExampleSlidesOnly" class="carousel slide"
-							data-bs-ride="carousel">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="assets/imagenes/Bosque_Negro2.jpg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-								<div class="carousel-item">
-									<img src="assets/imagenes/Mordor2.jpg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
+				<c:forEach items="${promociones}" var="promocion">
+					<div class="col">
+						<div class="card h-100 text-white bg-dark border-warning">
+							<img src="assets/imagenes/${promocion.getNombre()}.jpg"
+								class="card-img-top contenedor-imagen2" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">${promocion.getNombre()}</h5>
+							</div>
+							<div class="card-footer">
+								<button type="button" class="btn btn-primary"
+									data-bs-toggle="modal"
+									data-bs-target="#${promocion.getNombre()}">
+									Descripción</button>
 							</div>
 						</div>
-						<div class="card-body">
-							<h5 class="card-title">Promo Aventura</h5>
-							<p class="card-text">Ésta es una promoción porcentual.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Precio: 22 monedas</small>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Duración: 7 horas</small>
-						</div>
-						<div class="card-footer">
-							<button type="button" class="btn btn-primary"
-								data-bs-toggle="modal" data-bs-target="#PromoAventura">
-								Descripción</button>
-						</div>
 					</div>
-				</div>
-				<div class="col">
-					<div class="card h-100">
-						<div id="carouselExampleSlidesOnly" class="carousel slide"
-							data-bs-ride="carousel">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="assets/imagenes/Lothlorien.jpg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-								<div class="carousel-item">
-									<img src="assets/imagenes/La Comarca.jpg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Promo Degustación</h5>
-							<p class="card-text">Ésta es una promoción absoluta.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Precio: 36 monedas</small>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Duración: 7.5 horas</small>
-						</div>
-						<div class="card-footer">
-							<button type="button" class="btn btn-primary"
-								data-bs-toggle="modal" data-bs-target="#PromoDegustacion">
-								Descripción</button>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card h-100">
-						<div id="carouselExampleSlidesOnly" class="carousel slide"
-							data-bs-ride="carousel">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="assets/imagenes/Minas Tirith.jpeg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-								<div class="carousel-item">
-									<img src="assets/imagenes/Abismo_Helm2.jpg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-								<div class="carousel-item">
-									<img src="assets/imagenes/Erebor.jpg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Promo Paisaje</h5>
-							<p class="card-text">Ésta es una promoción AxB.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Precio: 10 monedas</small>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Duración: 7.5 horas</small>
-						</div>
-						<div class="card-footer">
-							<button type="button" class="btn btn-primary"
-								data-bs-toggle="modal" data-bs-target="#PromoPaisaje">
-								Descripción</button>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card h-100">
-						<div id="carouselExampleSlidesOnly" class="carousel slide"
-							data-bs-ride="carousel">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="assets/imagenes/Carreta Fantasma.jpeg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-								<div class="carousel-item">
-									<img src="assets/imagenes/Bosque Tenebroso.jpg"
-										class="d-block contenedor-imagen2" alt="...">
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Promo Terror</h5>
-							<p class="card-text">Ésta es una promoción absoluta.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Precio: 10 monedas</small>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Duración: 8.5 horas</small>
-						</div>
-						<div class="card-footer">
-							<button type="button" class="btn btn-primary"
-								data-bs-toggle="modal" data-bs-target="#PromoTerror">
-								Descripción</button>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 
 			<!-- Atracciones-->
 			<h3 id="atracciones" class="text-center bg-warning mt-4 mb-4">ATRACCIONES</h3>
 			<div class="row row-cols-1 row-cols-md-4 g-5">
+
 				<c:forEach items="${atracciones}" var="atraccion">
 					<div class="col">
-						<div class="card h-100">
+						<div class="card h-100 text-white bg-dark border-warning">
 							<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
 								class="card-img-top contenedor-imagen2" alt="...">
 							<div class="card-body">
 								<h5 class="card-title">${atraccion.getNombre()}</h5>
-								<p class="card-text">${atraccion.getDescripcion()}</p>
+								<%-- 								<p class="card-text">${atraccion.getDescripcion()}</p> --%>
 							</div>
 							<div class="card-footer">
 								<button type="button" class="btn btn-primary"
@@ -219,13 +105,7 @@
 									data-bs-target="#${atraccion.getNombre()}">
 									Descripción</button>
 							</div>
-							<c:if test="${!atraccion.hayCupo() }">
-								<div class="card-footer">
-									<div class="alert alert-danger">
-										<small class="text-muted">SIN CUPO</small>
-									</div>
-								</div>
-							</c:if>
+
 						</div>
 					</div>
 				</c:forEach>
@@ -233,6 +113,51 @@
 		</section>
 	</section>
 
+
+	<!--  Modal PROMOCIONES -->
+	<c:forEach items="${promociones}" var="promocion">
+		<div class="modal fade" id="${promocion.getNombre()}" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">${promocion.getNombre()}</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div id="carouselExampleSlidesOnly" class="carousel slide"
+							data-bs-ride="carousel">
+							<div class="carousel-inner">
+								<c:forEach items="${promocion.getAtracciones()}" var="atraccion">
+									<div class="carousel-item">
+										<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
+											class="d-block contenedor-imagen2" alt="...">
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+						<p>
+							<c:if test="${!atraccion.hayCupo() }">
+								<div class="alert alert-danger">
+									<small class="text-muted">SIN CUPO</small>
+								</div>
+							</c:if>
+						</p>
+						<%-- 						<p>${atraccion.getDescripcion()}</p> --%>
+						<p>Duración: ${promocion.getTiempoTotal()}</p>
+						<p>Costo: ${promocion.getCosto()}</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Cerrar</button>
+						<a href="buy.do?id=${recomendacion.getId()}"
+							class="btn btn-success rounded" role="button">Comprar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</c:forEach>
 
 	<!--  Modal ATRACCIONES -->
 	<c:forEach items="${atracciones}" var="atraccion">
@@ -250,10 +175,18 @@
 							<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
 								class="card-img-top contenedor-imagen2" alt="...">
 						</div>
-						<p>${atraccion.getDescripcion()}</p>
+						<%-- 						<p>${atraccion.getDescripcion()}</p> --%>
 						<p>Categoría: ${atraccion.getTipoAtraccion()}</p>
-						<p>Cupo disponible: ${atraccion.getCupo()}</p>
-						<p>Duración: ${atraccion.getTiempo()}</p>
+						<p>
+							<c:if test="${!atraccion.hayCupo() }">
+								<div class="alert alert-danger">
+									<small class="text-muted">SIN CUPO</small>
+								</div>
+							</c:if>
+							<c:if test="${atraccion.hayCupo()}"> Cupo disponible: ${atraccion.getCupo()}</c:if>
+						</p>
+
+						<p>Duración: ${atraccion.getTiempoTotal()}</p>
 						<p>Costo: ${atraccion.getCosto()}</p>
 					</div>
 					<div class="modal-footer">
@@ -266,6 +199,8 @@
 			</div>
 		</div>
 	</c:forEach>
+
+
 
 	<footer class="conteiner-md text-dark text-center mt-5 border-dark">
 		ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 </footer>

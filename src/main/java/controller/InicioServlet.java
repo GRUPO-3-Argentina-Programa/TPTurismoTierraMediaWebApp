@@ -15,7 +15,7 @@ import model.Promocion;
 import services.AtraccionService;
 import services.PromocionService;
 
-@WebServlet("/inicio")
+@WebServlet("/index")
 public class InicioServlet extends HttpServlet implements Servlet {
 	
 	private static final long serialVersionUID = 5833846365458548854L;
@@ -38,7 +38,7 @@ public class InicioServlet extends HttpServlet implements Servlet {
 		List<Atraccion> atracciones = atraccionService.list();
 		req.setAttribute("atracciones", atracciones);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(req, resp);
 
 	}
