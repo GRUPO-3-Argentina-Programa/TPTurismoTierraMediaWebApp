@@ -270,4 +270,15 @@
 	<footer class="conteiner-md text-dark text-center mt-5 border-dark">
 		ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 </footer>
 </body>
+</html><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
 </html>

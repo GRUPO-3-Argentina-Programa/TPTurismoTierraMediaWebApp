@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,19 +12,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import model.Promocion;
-import model.Usuario;
 import services.AtraccionService;
 import services.PromocionService;
-import services.UsuarioService;
 
-
-  @WebServlet("/listar.adm")
-public class ListAdminServelt extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
+@WebServlet("/inicio")
+public class InicioServlet extends HttpServlet implements Servlet {
+	
+	private static final long serialVersionUID = 5833846365458548854L;
 	private AtraccionService atraccionService;
 	private PromocionService promocionService;
-	private UsuarioService usuarioService;
 	
 
 	@Override
@@ -31,7 +28,6 @@ public class ListAdminServelt extends HttpServlet {
 		super.init();
 		this.promocionService = new PromocionService();
 		this.atraccionService = new AtraccionService();
-		this.usuarioService = new UsuarioService();
 	}
 
 	@Override
@@ -42,15 +38,8 @@ public class ListAdminServelt extends HttpServlet {
 		List<Atraccion> atracciones = atraccionService.list();
 		req.setAttribute("atracciones", atracciones);
 
-		List<Usuario> usuarios = usuarioService.list();
-		req.setAttribute("usuarios", usuarios);
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
 		dispatcher.forward(req, resp);
 
 	}
-	
-	
-
-
 }

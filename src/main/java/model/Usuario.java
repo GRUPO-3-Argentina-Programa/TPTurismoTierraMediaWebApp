@@ -1,11 +1,9 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-import persistence.impl.UsuarioDaoImpl;
 import utils.Crypt;
 
 public class Usuario {
