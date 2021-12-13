@@ -36,9 +36,9 @@ public class CrearAtraccionServlet extends HttpServlet {
 		String tipo = req.getParameter("tipo");
 		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
-		Integer id = Integer.parseInt(req.getParameter("Id"));
+//		Integer id = Integer.parseInt(req.getParameter("Id"));
 
-		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo, id);
+		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo);
 		if (atraccion.isValid()) {
 			resp.sendRedirect("listar.adm");
 		} else {

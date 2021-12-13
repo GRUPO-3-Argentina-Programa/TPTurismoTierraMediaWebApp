@@ -53,18 +53,18 @@ public class PromocionDaoImpl implements PromocionDao{
       
 		
 		if (result.getString(3).equals("porcentual")) {
-			return new PromocionPorcentual(result.getString(7), result.getString(2), atraccionesDePromo, result.getDouble(4), result.getInt(1));
+			return new PromocionPorcentual(result.getString(8), result.getString(2), atraccionesDePromo, result.getDouble(4), result.getInt(1));
 		}
 
 		if (result.getString(3).equals("AxB")) {
 			 AtraccionDaoImpl atrac = new AtraccionDaoImpl();
 			
-				return new PromocionAxB(result.getString(7), result.getString(2), atraccionesDePromo, atrac.find(result.getInt(6)), result.getInt(1));
+				return new PromocionAxB(result.getString(8), result.getString(2), atraccionesDePromo, atrac.find(result.getInt(6)), result.getInt(1));
 			
 			}			
 		
 		else {
-			return new PromocionAbs(result.getString(7), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1));
+			return new PromocionAbs(result.getString(8), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1));
 		}
 		
 	}

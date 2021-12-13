@@ -2,8 +2,8 @@
 <div class="modal-body">
 	<div class="mb-3">
 		<label for="name" class="col-form-label">Nombre:</label> <input
-			type="text" class="form-control" id="name" name="nombre"
-			required value="${ atracciones.nombre}">
+			type="text" class="form-control" id="name" name="nombre" required
+			value="${ atracciones.nombre}">
 	</div>
 	<div class="mb-3">
 		<label for="cost"
@@ -14,12 +14,21 @@
 			<c:out value='${atracciones.errors.get("costo")}'></c:out>
 		</div>
 	</div>
-		<div class="mb-3">
-		<label for="tipo" class="col-form-label">Tipo Atraccion:</label> <input
-			type="text" class="form-control" id="tipo" name="tipo"
-			required value="${ atracciones.tipo}">
+	<div class="mb-3">
+		<div class="col-12">
+			<label for="tipo" class="col-form-label">Tipo Atraccion:</label> <select
+				class="form-select" id="tipo"  name="tipo">
+				<option selected>Seleccione una opcion</option>
+				<option value="AVENTURA"  name="tipo">AVENTURA</option>
+				<option value="DEGUSTACION"  name="tipo">DEGUSTACION</option>
+				<option value="TERROR"  name="tipo">TERROR</option>
+				<option value="PAISAJE"  name="tipo">PAISAJE</option>
+			</select>
+
+
+		</div>
 	</div>
-	
+
 	<div class="mb-3">
 		<label for="duration"
 			class='col-form-label ${atracciones.errors.get("tiempo") != null ? "is-invalid" : "" }'>Tiempo:</label>
@@ -36,15 +45,6 @@
 			required value="${atracciones.cupo}"></input>
 		<div class="invalid-feedback">
 			<c:out value='${atracciones.errors.get("cupo")}'></c:out>
-		</div>
-	</div>
-	<div class="mb-3">
-		<label for="id"
-			class='col-form-label ${atracciones.errors.get("id") != null ? "is-invalid" : "" }'>ID:</label>
-		<input class="form-control" type="number" id="id" name="Id"
-			required value="${atracciones.cupo}"></input>
-		<div class="invalid-feedback">
-			<c:out value='${atracciones.errors.get("id")}'></c:out>
 		</div>
 	</div>
 </div>

@@ -59,7 +59,7 @@
 					<c:forEach items="${promociones}" var="promocion">
 						<div class="col">
 							<div class="card h-100 text-white bg-dark border-warning">
-								<img src="assets/imagenes/${promocion.getNombre()}.jpg"
+								<img src="assets/imagenes/${promocion.getNombre().replace(' ','')}.jpg"
 									class="card-img-top contenedor-imagen2" alt="...">
 								<div class="card-body">
 									<h5 class="card-title">${promocion.getNombre()}</h5>
@@ -67,7 +67,7 @@
 								<div class="card-footer">
 									<button type="button" class="btn btn-primary"
 										data-bs-toggle="modal"
-										data-bs-target="#${promocion.getNombre()}">
+										data-bs-target="#${promocion.getNombre().replace(' ','')}">
 										Descripción</button>
 								</div>
 							</div>
@@ -88,7 +88,7 @@
 					<c:forEach items="${atracciones}" var="atraccion">
 						<div class="col">
 							<div class="card h-100 text-white bg-dark border-warning">
-								<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
+								<img src="assets/imagenes/${atraccion.getNombre().replace(' ','')}.jpg"
 									class="card-img-top contenedor-imagen2" alt="...">
 								<div class="card-body">
 									<h5 class="card-title">${atraccion.getNombre()}</h5>
@@ -97,7 +97,7 @@
 								<div class="card-footer">
 									<button type="button" class="btn btn-primary"
 										data-bs-toggle="modal"
-										data-bs-target="#${atraccion.getNombre()}">
+										data-bs-target="#${atraccion.getNombre().replace(' ','')}">
 										Descripción</button>
 								</div>
 
@@ -112,7 +112,7 @@
 
 	<!--  Modal PROMOCIONES -->
 	<c:forEach items="${promociones}" var="promocion">
-		<div class="modal fade" id="${promocion.getNombre()}" tabindex="-1"
+		<div class="modal fade" id="${promocion.getNombre().replace(' ','')}" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -122,16 +122,9 @@
 							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<div id="carouselExampleSlidesOnly" class="carousel slide"
-							data-bs-ride="carousel">
-							<div class="carousel-inner">
-								<c:forEach items="${promocion.getAtracciones()}" var="atraccion">
-									<div class="carousel-item">
-										<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
-											class="d-block contenedor-imagen2" alt="...">
-									</div>
-								</c:forEach>
-							</div>
+						<div class="container mb-3">
+							<img src="assets/imagenes/${promocion.getNombre().replace(' ','')}.jpg"
+								class="card-img-top contenedor-imagen2" alt="...">
 						</div>
 						<p>
 							<c:if test="${!atraccion.hayCupo() }">
@@ -157,7 +150,7 @@
 
 	<!--  Modal ATRACCIONES -->
 	<c:forEach items="${atracciones}" var="atraccion">
-		<div class="modal fade" id="${atraccion.getNombre()}" tabindex="-1"
+		<div class="modal fade" id="${atraccion.getNombre().replace(' ','')}" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -168,7 +161,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="container mb-3">
-							<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
+							<img src="assets/imagenes/${atraccion.getNombre().replace(' ','')}.jpg"
 								class="card-img-top contenedor-imagen2" alt="...">
 						</div>
 						<%-- 						<p>${atraccion.getDescripcion()}</p> --%>
