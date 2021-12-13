@@ -42,8 +42,8 @@
 			<li class="list-group-item list-group-item-primary">Tiempo
 				necesario: ${user.getTotalTiempo(sugeribles) }horas</li>
 		</ul>
-
 	</section>
-
 </body>
+<footer class="conteiner-md text-dark text-center mt-5 border-dark">
+	ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 - Curso 8</footer>
 </html>

@@ -1,106 +1,72 @@
 @charset "UTF-8";
 
-:root{
+/* :root { - */
+/* 	-dark-olive-green: #47682cff; - */
+/* 	-dark-electric-blue: #53687eff; - */
+/* 	-isabelline: #f7f4f3ff; - */
+/* 	-claret: #7d1d3fff; - */
+/* 	-old-mauve: #5b2333ff; - */
+/* 	-colorBase: var(- -miAmarillo)--contrasteBse: var(- -Mipetroleo) */
+/* } */
 
---dark-olive-green: #47682cff;
---dark-electric-blue: #53687eff;
---isabelline: #f7f4f3ff;
---claret: #7d1d3fff;
---old-mauve: #5b2333ff;
-
---colorBase: var(--miAmarillo)
---contrasteBse: var(--Mipetroleo)
+.bg-miPrincipal {
+	background-color: var(- -colorBase);
 }
 
-.bg-miPrincipal{
-    background-color: var(--colorBase);
+.bg-contraste {
+	background-color: var(- -contrasteBase);
 }
-
-.bg-contraste{
-    background-color: var(--contrasteBase);
-}
-
 
 #titulo {
 	background-color: #f7f4f3ff;
-	 font-size: 150px;
-	
+	font-size: 150px;
 }
 
-#nav2{
-	background-color:#53687eff;
+#nav2 {
+	background-color: #53687eff;
 	color: white;
 	padding: none;
-	
-	
 }
 
- section {
-
- font-family: 'Amatic SC', cursive;
- text-align: center; 
- font-size: 30px;
-
-
- }
- 
+section {
+	font-family: 'Amatic SC', cursive;
+	text-align: center;
+	font-size: 30px;
+}
 
 footer {
-
- font-family: 'Amatic SC', cursive;
- color: #53687eff;
-  text-align: center; 
- font-size: 30px;
-background-color:#53687eff;
-
- }
-
-
-
- .carousel{
- 	width:100%;
-	height:100%;
-	overflow:hidden;
- }
-
-
-.contenedor-imagen{
-	width:100%;
-	height:400px;
-	overflow:hidden;
+	font-family: 'Amatic SC', cursive;
+	color: #53687eff;
+	text-align: center;
+	font-size: 30px;
+	background-color: #53687eff;
 }
 
-.contenedor-imagen2{
-	width:100%;
-	height:100%;
-	overflow:hidden;
+.carousel {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
-a{
+
+.contenedor-imagen {
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
+}
+
+.contenedor-imagen2 {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+a {
 	color: white;
 	text-decoration: none;
 }
 
-
-
-#dobleboton {
-	 font-family: 'Amatic SC', cursive;
-	  text-align: center; 
-  	font-size: 50px;
- 
-	
+.container {
+	overflow: auto!important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
 }
-
-
-#dobleboton1 {
-	background-color: #7d1d3fff;
-		border-radius: 20px;
-	
-	
-}
-
-#dobleboton2 {
-	background-color: #47682cff;
-		border-radius: 20px;
-	
-}
-

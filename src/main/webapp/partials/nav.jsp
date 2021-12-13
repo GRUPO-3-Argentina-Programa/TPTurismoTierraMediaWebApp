@@ -24,15 +24,7 @@
 							<a href="itinerario.do">Mi itinerario</a>
 						</div>
 						<div class="col">
-							<c:set var="currentUrl" value="${request.getRequestURI()}"/>
-							<c:if test="${fn:endsWith(currentUrl, 'index.jsp')}">
-								<a href="listar.do">Recomendaciones</a>
-							</c:if>
-							<c:if test="${fn:endsWith(currentUrl, 'listar.do')}">
-								<a href="index.jsp">Inicio</a>
-							</c:if>
-
-
+							<a href="listar.do">Recomendaciones</a>
 						</div>
 						<div class="col">
 							<ul class="navbar-nav">
@@ -46,12 +38,17 @@
 										<li><a class="dropdown-item disabled"
 											style="color: black;"> <i title="monedas"
 												style="color: gold;" class="bi bi-coin"></i> <c:out
-													value="${user.getPresupuesto()}"></c:out>
+													value="Presupuesto: ${user.getPresupuesto()} monedas"></c:out>
 										</a></li>
 										<li><a class="dropdown-item disabled"
 											style="color: black;"> <i title="tiempo"
 												style="color: blue;" class="bi bi-clock-fill"></i> <c:out
-													value="${user.getTiempo()}h"></c:out>
+													value="Tiempo disponible: ${user.getTiempo()} h"></c:out>
+										</a></li>
+										<li><a class="dropdown-item disabled"
+											style="color: black;"> <i title="preferencia"
+												style="color: gold;" class="bi bi-coin"></i> <c:out
+													value="Preferencia: ${user.getPreferencia()}"></c:out>
 										</a></li>
 										<li><hr class="dropdown-divider"></li>
 										<li><a href="logout" class="dropdown-item">Salir</a></li>
@@ -60,8 +57,6 @@
 						</div>
 					</c:if>
 				</div>
-
-
 			</div>
 		</section>
 	</div>

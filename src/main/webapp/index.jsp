@@ -48,57 +48,66 @@
 		</div>
 	</div>
 
-	<section class="row container-fluid">
-		<section class="container mt-5 mb-5">
+	<div class="overflow">
+		<section class="row container-fluid">
+			<section class="container mt-5 mb-5">
 
-			<!-- Promociones-->
-			<h3 id="promociones" class="text-center bg-warning mt-4 mb-4">PROMOCIONES</h3>
-			<div class="row row-cols-1 row-cols-md-3 g-5 responsive">
-				<c:forEach items="${promociones}" var="promocion">
-					<div class="col">
-						<div class="card h-100 text-white bg-dark border-warning">
-							<img src="assets/imagenes/${promocion.getNombre()}.jpg"
-								class="card-img-top contenedor-imagen2" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">${promocion.getNombre()}</h5>
-							</div>
-							<div class="card-footer">
-								<button type="button" class="btn btn-primary"
-									data-bs-toggle="modal"
-									data-bs-target="#${promocion.getNombre()}">
-									Descripción</button>
+				<!-- Promociones-->
+				<h3 id="promociones" class="text-center bg-warning mt-4 mb-4">PROMOCIONES</h3>
+
+				<div class="row row-cols-1 row-cols-md-3 g-5 responsive">
+					<c:forEach items="${promociones}" var="promocion">
+						<div class="col">
+							<div class="card h-100 text-white bg-dark border-warning">
+								<img src="assets/imagenes/${promocion.getNombre()}.jpg"
+									class="card-img-top contenedor-imagen2" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">${promocion.getNombre()}</h5>
+								</div>
+								<div class="card-footer">
+									<button type="button" class="btn btn-primary"
+										data-bs-toggle="modal"
+										data-bs-target="#${promocion.getNombre()}">
+										Descripción</button>
+								</div>
 							</div>
 						</div>
-					</div>
-				</c:forEach>
-			</div>
-
-			<!-- Atracciones-->
-			<h3 id="atracciones" class="text-center bg-warning mt-4 mb-4">ATRACCIONES</h3>
-			<div class="row row-cols-1 row-cols-md-4 g-5">
-
-				<c:forEach items="${atracciones}" var="atraccion">
-					<div class="col">
-						<div class="card h-100 text-white bg-dark border-warning">
-							<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
-								class="card-img-top contenedor-imagen2" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">${atraccion.getNombre()}</h5>
-								<%-- 								<p class="card-text">${atraccion.getDescripcion()}</p> --%>
-							</div>
-							<div class="card-footer">
-								<button type="button" class="btn btn-primary"
-									data-bs-toggle="modal"
-									data-bs-target="#${atraccion.getNombre()}">
-									Descripción</button>
-							</div>
-
-						</div>
-					</div>
-				</c:forEach>
-			</div>
+					</c:forEach>
+				</div>
+			</section>
 		</section>
-	</section>
+	</div>
+
+	<div class="overflow">
+		<section class="row container-fluid">
+			<section class="container mt-5 mb-5">
+				<!-- Atracciones-->
+				<h3 id="atracciones" class="text-center bg-warning mt-4 mb-4">ATRACCIONES</h3>
+				<div class="row row-cols-1 row-cols-md-4 g-5">
+
+					<c:forEach items="${atracciones}" var="atraccion">
+						<div class="col">
+							<div class="card h-100 text-white bg-dark border-warning">
+								<img src="assets/imagenes/${atraccion.getNombre()}.jpg"
+									class="card-img-top contenedor-imagen2" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">${atraccion.getNombre()}</h5>
+									<%-- 								<p class="card-text">${atraccion.getDescripcion()}</p> --%>
+								</div>
+								<div class="card-footer">
+									<button type="button" class="btn btn-primary"
+										data-bs-toggle="modal"
+										data-bs-target="#${atraccion.getNombre()}">
+										Descripción</button>
+								</div>
+
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</section>
+		</section>
+	</div>
 
 
 	<!--  Modal PROMOCIONES -->
@@ -186,10 +195,7 @@
 			</div>
 		</div>
 	</c:forEach>
-
-
-
-	<footer class="conteiner-md text-dark text-center mt-5 border-dark">
-		ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 </footer>
 </body>
+<footer class="conteiner-md text-dark text-center mt-5 border-dark">
+	ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 - Curso 8</footer>
 </html>
