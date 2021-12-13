@@ -16,7 +16,7 @@
 			<c:forEach items="${sugeribles}" var="sugerible">
 				<div class="col">
 					<div class="card h-100 text-white bg-dark border-warning">
-						<img src="assets/imagenes/${sugerible.getNombre()}.jpg"
+						<img src="assets/imagenes/${sugerible.getNombre().replace(' ','')}.jpg"
 							class="card-img-top contenedor-imagen2" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">${sugerible.getNombre()}</h5>

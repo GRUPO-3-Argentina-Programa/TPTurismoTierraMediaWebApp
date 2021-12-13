@@ -31,7 +31,7 @@
 			<c:forEach items="${recomendaciones}" var="recomendacion">
 				<div class="col">
 					<div class="card h-100 text-white bg-dark border-warning">
-						<img src="assets/imagenes/${recomendacion.getNombre()}.jpg"
+						<img src="assets/imagenes/${recomendacion.getNombre().replace(' ','')}.jpg"
 							class="card-img-top contenedor-imagen2" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">${recomendacion.getNombre()}</h5>
@@ -48,8 +48,17 @@
 								${recomendacion.getTiempoTotal()} horas</small>
 						</div>
 						<div class="card-footer">
-							<a href="buy.do?id=${recomendacion.getId()}"
-								class="btn btn-success rounded" role="button">Comprar</a>
+							<c:choose>
+								<c:when
+									test="${user.puedeComprar(recomendacion) && recomendacion.hayCupo() }">
+									<a href="buy.do?id=${recomendacion.getId()}"
+										class="btn-primary btn-success rounded" role="button">Comprar</a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="btn-secondary rounded disabled"
+										role="button">No Disponible</a>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</div>
