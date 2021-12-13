@@ -14,16 +14,18 @@ public class Atraccion implements Sugerible {
 	private String tipo;
 	private Integer idAtraccion;
 	private HashMap<String, String> errors;
+	private String descripcion;
 
-	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo, int id) {
+	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo, int id, String descripcion) {
 		this.nombre = nombre;
 		this.costeDeVisita = costo;
 		this.promedioDeTiempo = tiempo;
 		this.cupoDePersonas = cupo;
 	    this.tipo = tipo;
 	    this.idAtraccion = id;
+	    this.descripcion = descripcion;
 	}
-	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo) {
+	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo, String descripcion) {
 		this.nombre = nombre;
 		this.costeDeVisita = costo;
 		this.promedioDeTiempo = tiempo;
@@ -146,6 +148,13 @@ public class Atraccion implements Sugerible {
 	public void setCupo(Integer cupo) {
 		this.cupoDePersonas= cupo;
 		
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 }
 

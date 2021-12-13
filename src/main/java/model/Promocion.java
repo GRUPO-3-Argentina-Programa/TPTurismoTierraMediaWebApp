@@ -75,7 +75,7 @@ public class Promocion implements Sugerible {
 	}
 	
 	public String getNombreAtracciones() {
-		return "Esto promoción que incluye: " + Arrays.toString(getNombresDeAtracciones());
+		return "Esta promoción incluye: " + Arrays.toString(getNombresDeAtracciones());
 	}
 
 
@@ -108,6 +108,11 @@ public class Promocion implements Sugerible {
 	
 	public int getId() {
 		return id;
+	}
+
+	@Override
+	public String getDescripcion() {
+		return this.getNombreAtracciones();
 	}
 
 }

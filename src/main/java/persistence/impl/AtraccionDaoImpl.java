@@ -16,7 +16,7 @@ public class AtraccionDaoImpl implements AtraccionDao {
 
 	protected Atraccion toAtraccion(ResultSet result) throws SQLException {
 		return new Atraccion(result.getString(1), result.getInt(2), result.getString(3), result.getDouble(4),
-				result.getInt(5), result.getInt(6));
+				result.getInt(5), result.getInt(6), result.getString(8));
 	}
 
 	public List<Atraccion> findAll() {
