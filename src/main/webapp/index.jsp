@@ -48,20 +48,7 @@
 		</div>
 	</div>
 
-	<div id=dobleboton class="container px-4 mt=3">
-		<div class="row gx-5">
-			<div class="col">
-				<div id="dobleboton1" class="p-5 shadow mb-5 bg-body rounded ">Atracciones</div>
-			</div>
-			<div class="col">
-				<div class="p-5 shadow mb-5 bg-body rounded" id="dobleboton2">Promociones</div>
-			</div>
-		</div>
-	</div>
-
 	<section class="row container-fluid">
-
-
 		<section class="container mt-5 mb-5">
 
 			<!-- Promociones-->

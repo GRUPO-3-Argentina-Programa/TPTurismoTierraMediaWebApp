@@ -121,6 +121,25 @@ public class Atraccion implements Sugerible {
 	public Map<String, String> getErrors() {
 		return errors;
 	}
+
+	public void setNombre(String nombre2) {
+		this.nombre = nombre2;
+		
+	}
+
+	public void setCosto(Double costo) {
+	this.costeDeVisita= costo;
+		
+	}
+
+	public void setTiempo(Double tiempo) {
+		this.promedioDeTiempo= tiempo;
+	}
+
+	public void setCupo(Integer cupo) {
+		this.cupoDePersonas= cupo;
+		
+	}
 }
 
 
