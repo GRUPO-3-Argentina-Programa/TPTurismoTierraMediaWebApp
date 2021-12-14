@@ -118,8 +118,8 @@
 		</section>
 	</section>
 
-	<a href="createU.jsp" class="btn btn-secondary btn-lg" role="button">
-		<i class="bi bi-plus-lg"></i> Nueva Usuario
+	<a href="crearUsuario.adm" class="btn btn-secondary btn-lg" role="button">
+		<i class="bi bi-plus-lg"></i> Nuevo Usuario
 	</a>
 
 	<section class="row container-fluid">

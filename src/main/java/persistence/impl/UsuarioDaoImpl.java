@@ -21,13 +21,14 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	public int insert(Usuario user) {
 		try {
 			String sql = "INSERT INTO Usuarios (nombre, passwordHash, admin, presupuesto, tiempoDisponible, preferencia) "
-					+ "VALUES (?, ?, ?, ?, ?. ?)";
+					+ "VALUES (?, ?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, user.getNombre());
 			statement.setString(2, user.getPassword());
-			statement.setBoolean(3, user.getAdmin());
+			if (user.getAdmin()) statement.setInt(3, 1);
+			else statement.setInt(3, 0);
 			statement.setDouble(4, user.getPresupuesto());
 			statement.setDouble(5, user.getTiempo());
 			statement.setString(6, user.getPreferencia());

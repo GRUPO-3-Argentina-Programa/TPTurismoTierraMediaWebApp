@@ -13,7 +13,7 @@ import model.Usuario;
 import services.UsuarioService;
 
 
-@WebServlet("/crearusuario.do")
+@WebServlet("/crearUsuario.adm")
 public class CrearUsuarioServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -1047363622015119142L;
@@ -44,7 +44,7 @@ public class CrearUsuarioServlet extends HttpServlet implements Servlet {
 
 		Usuario usuario = usuarioService.create(nombre, password, admin, presupuesto, tiempo, preferencia);
 		if (usuario.isValid()) {
-			resp.sendRedirect("/listar.adm");
+			resp.sendRedirect("listar.adm");
 		} else {
 			req.setAttribute("usuario", usuario);
 
