@@ -9,6 +9,6 @@ public interface AtraccionDao extends GenericDAO<Atraccion> {
 
 	int insert(Atraccion atraccion);
 	int delete(int id);
-	void update(Atraccion attraction);
+	int update(Atraccion attraction);
 	Atraccion findByName(String nombre) throws SQLException;
 }

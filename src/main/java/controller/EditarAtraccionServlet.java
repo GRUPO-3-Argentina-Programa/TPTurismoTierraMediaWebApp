@@ -13,7 +13,7 @@ import model.Atraccion;
 import services.AtraccionService;
 
 
-@WebServlet("/atraccion/editar.adm")
+@WebServlet("/atraccionEditar.adm")
 public class EditarAtraccionServlet extends HttpServlet {
 	
 	
@@ -47,17 +47,15 @@ public class EditarAtraccionServlet extends HttpServlet {
 		String tipo = req.getParameter("tipo");
 		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
+		Integer id = Integer.parseInt(req.getParameter("id"));
 		String descripcion = req.getParameter("descripcion");
 
-		Atraccion atraccion = new Atraccion(nombre, costo, tipo, tiempo, cupo, descripcion);
-		try {
-			atraccion = atraccionService.update(nombre, costo, tipo, tiempo, cupo, descripcion);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
+		Atraccion atraccion;
+	
+			atraccion = atraccionService.update(nombre, costo, tipo, tiempo, cupo, id, descripcion);
+		
 		if (atraccion.isValid()) {
-			resp.sendRedirect("/listar.adm");
+			resp.sendRedirect("listar.adm");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 		

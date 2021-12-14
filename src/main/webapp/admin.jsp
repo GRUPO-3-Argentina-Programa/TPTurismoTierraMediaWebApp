@@ -60,7 +60,7 @@
 							<td><c:out value="${atracciones.getCosto() }"></c:out></td>
 							<td><a
 								href="atraccion/borrar.adm?id=${ atracciones.getId() }">Borrar</a>
-								/ <a href="atraccion/editar.adm?id=${atracciones.getId()}">Editar</a>
+								/ <a href="atraccionEditar.adm?id=${atracciones.getId()}">Editar</a>
 							</td>
 						</tr>
 					</c:if>

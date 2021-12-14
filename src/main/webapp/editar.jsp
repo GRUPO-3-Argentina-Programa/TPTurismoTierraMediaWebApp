@@ -12,14 +12,14 @@
 	<jsp:include page="/partials/nav.jsp"></jsp:include>
 	<main class="container">
 
-		<c:if test="${attraction != null && !attraction.isValid()}">
+		<c:if test="${atraccion != null && !atraccion.isValid()}">
 			<div class="alert alert-danger">
 				<p>Se encontraron errores al actualizar la atracción.</p>
 			</div>
 		</c:if>
 
-		<form action="atraccion/editar.adm" method="post">
-			<input type="hidden" name="id" value="${attraction.id}">
+		<form action="atraccionEditar.adm" method="post">
+			<input type="hidden" name="id" value="${atraccion.id}">
 			<jsp:include page="Form1.jsp"></jsp:include>
 		</form>
 	</main>

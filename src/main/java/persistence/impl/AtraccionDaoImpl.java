@@ -123,9 +123,9 @@ public class AtraccionDaoImpl implements AtraccionDao {
 	}
 	
 	@Override
-	public void update(Atraccion attraction) {
+	public int update(Atraccion attraction) {
 		try {
-			String sql = "UPDATE ATTRACTIONS SET nombre = ?, costo = ?, tipo = ?, tiempo = ?, cupo = ?, descripcion = ? WHERE atraccion_ID = ?";
+			String sql = "UPDATE ATRACCIONES SET nombre = ?, costo = ?, tipo = ?, tiempo = ?, cupo = ?, descripcion = ? WHERE atraccion_id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -135,10 +135,11 @@ public class AtraccionDaoImpl implements AtraccionDao {
 			statement.setString(i++, attraction.getTipoAtraccion());
 			statement.setDouble(i++, attraction.getTiempoTotal());
 			statement.setInt(i++, attraction.getCupo());
-			statement.setInt(i++, attraction.getId());
 			statement.setString(i++, attraction.getDescripcion());;
+			statement.setInt(i++, attraction.getId());
 			int rows = statement.executeUpdate();
 
+			return rows;
 			
 		} catch (Exception e) {
 			throw new MissingDataException(e);

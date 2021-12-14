@@ -1,6 +1,5 @@
 package services;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import model.Atraccion;
@@ -25,10 +24,10 @@ public class AtraccionService {
 		return atraccion;
 	}
 
-	public Atraccion update(String nombre, Double costo, String tipo, Double tiempo, Integer cupo, String descripcion) throws SQLException {
+	public Atraccion update(String nombre, Double costo, String tipo, Double tiempo, Integer cupo, int  id, String descripcion)  {
 
 		AtraccionDao attractionDAO = DAOFactory.getAtraccionDao();
-		Atraccion attraction = attractionDAO.findByName(nombre);
+		Atraccion attraction = attractionDAO.find(id);
 
 		attraction.setNombre(nombre);
 		attraction.setCosto(costo);
