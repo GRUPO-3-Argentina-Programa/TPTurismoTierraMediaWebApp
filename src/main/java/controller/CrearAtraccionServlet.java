@@ -15,7 +15,7 @@ import services.AtraccionService;
 public class CrearAtraccionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AtraccionService atraccionService;
-
+	
 	@Override
 	public void init() throws ServletException {
 		super.init();
@@ -37,8 +37,9 @@ public class CrearAtraccionServlet extends HttpServlet {
 		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
 //		Integer id = Integer.parseInt(req.getParameter("Id"));
+		String descripcion = req.getParameter("descripcion");
 
-		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo);
+		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo, descripcion );
 		if (atraccion.isValid()) {
 			resp.sendRedirect("listar.adm");
 		} else {

@@ -16,7 +16,7 @@ public class AtraccionDaoImpl implements AtraccionDao {
 
 	protected Atraccion toAtraccion(ResultSet result) throws SQLException {
 		return new Atraccion(result.getString(1), result.getInt(2), result.getString(3), result.getDouble(4),
-				result.getInt(5), result.getInt(6), result.getString(8));
+				result.getInt(5), result.getInt(6), result.getBoolean(7), result.getString(8));
 	}
 
 	public List<Atraccion> findAll() {
@@ -102,7 +102,7 @@ public class AtraccionDaoImpl implements AtraccionDao {
 	@Override
 	public int insert(Atraccion atraccion) {
 		try {
-			String sql = "INSERT INTO ATRACCIONES (Nombre, COSTO, TIPO, TIEMPO, CUPO) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO ATRACCIONES (Nombre, COSTO, TIPO, TIEMPO, CUPO, DESCRIPCION) VALUES (?, ?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -112,7 +112,8 @@ public class AtraccionDaoImpl implements AtraccionDao {
 			statement.setString(i++, atraccion.getTipoAtraccion());
 			statement.setDouble(i++, atraccion.getTiempoTotal());
 			statement.setInt(i++, atraccion.getCupo());
-			// statement.setInt(i++, atraccion.getId());
+			// statement.setInt(i++, atraccion.getId())
+			statement.setString(i++, atraccion.getDescripcion());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -124,7 +125,7 @@ public class AtraccionDaoImpl implements AtraccionDao {
 	@Override
 	public void update(Atraccion attraction) {
 		try {
-			String sql = "UPDATE ATTRACTIONS SET nombre = ?, costo = ?, tipo = ?, tiempo = ?, cupo = ? WHERE atraccion_ID = ?";
+			String sql = "UPDATE ATTRACTIONS SET nombre = ?, costo = ?, tipo = ?, tiempo = ?, cupo = ?, descripcion = ? WHERE atraccion_ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -135,6 +136,7 @@ public class AtraccionDaoImpl implements AtraccionDao {
 			statement.setDouble(i++, attraction.getTiempoTotal());
 			statement.setInt(i++, attraction.getCupo());
 			statement.setInt(i++, attraction.getId());
+			statement.setString(i++, attraction.getDescripcion());;
 			int rows = statement.executeUpdate();
 
 			

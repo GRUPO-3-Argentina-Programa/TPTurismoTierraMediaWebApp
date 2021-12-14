@@ -15,14 +15,16 @@ public class Atraccion implements Sugerible {
 	private Integer idAtraccion;
 	private HashMap<String, String> errors;
 	private String descripcion;
+	private Boolean activo;
 
-	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo, int id, String descripcion) {
+	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo, int id, boolean activo, String descripcion) {
 		this.nombre = nombre;
 		this.costeDeVisita = costo;
 		this.promedioDeTiempo = tiempo;
 		this.cupoDePersonas = cupo;
 	    this.tipo = tipo;
 	    this.idAtraccion = id;
+	    this.activo = activo;
 	    this.descripcion = descripcion;
 	}
 	public Atraccion(String nombre, double costo,  String tipo, double tiempo, int cupo, String descripcion) {
@@ -31,6 +33,18 @@ public class Atraccion implements Sugerible {
 		this.promedioDeTiempo = tiempo;
 		this.cupoDePersonas = cupo;
 	    this.tipo = tipo;
+	    this.descripcion = descripcion;
+	}
+	
+	
+	public Atraccion (String nombre, Double costo, String tipo, Double tiempo, Integer cupo, Integer id, String descripcion) {
+	this.nombre = nombre;
+	this.costeDeVisita = costo;
+	this.promedioDeTiempo = tiempo;
+	this.cupoDePersonas = cupo;
+    this.tipo = tipo;
+    this.idAtraccion = id;
+    this.descripcion = descripcion;
 	}
 	
 	public int getId() {
@@ -156,6 +170,20 @@ public class Atraccion implements Sugerible {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	public void borrar(int id) {
+		this.activo = false;
+	}
+	
+	public boolean esActivo() {
+		return activo;
+		
+	}
+	public void setTipo(String tipo2) {
+		this.tipo = tipo2;
+		
+	}
+	
 }
 
 

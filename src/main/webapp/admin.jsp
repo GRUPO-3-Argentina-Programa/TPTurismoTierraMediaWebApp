@@ -53,7 +53,7 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${ atracciones }" var="atracciones">
-
+						<c:if test="${atracciones.esActivo()}">
 						<tr>
 							<td><c:out value="${atracciones.getNombre() }"></c:out></td>
 							<td><c:out value="${atracciones.getTiempoTotal() }"></c:out></td>
@@ -63,7 +63,7 @@
 								/ <a href="atraccion/editar.adm?id=${atracciones.getId()}">Editar</a>
 							</td>
 						</tr>
-
+					</c:if>
 					</c:forEach>
 				</tbody>
 			</table>
