@@ -36,10 +36,10 @@ public class CrearAtraccionServlet extends HttpServlet {
 		String tipo = req.getParameter("tipo");
 		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
-//		Integer id = Integer.parseInt(req.getParameter("Id"));
 		String descripcion = req.getParameter("descripcion");
+//		Integer id = Integer.parseInt(req.getParameter("Id"));
 
-		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo, descripcion );
+		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo, descripcion);
 		if (atraccion.isValid()) {
 			resp.sendRedirect("listar.adm");
 		} else {

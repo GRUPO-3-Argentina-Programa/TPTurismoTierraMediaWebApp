@@ -16,17 +16,21 @@ import persistence.UsuarioDao;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
 
-
 public class UsuarioDaoImpl implements UsuarioDao {
 
 	public int insert(Usuario user) {
 		try {
-			String sql = "INSERT INTO Usuarios (nombre, passwordHash) VALUES (?, ?)";
+			String sql = "INSERT INTO Usuarios (nombre, passwordHash, admin, presupuesto, tiempoDisponible, preferencia) "
+					+ "VALUES (?, ?, ?, ?, ?. ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, user.getNombre());
 			statement.setString(2, user.getPassword());
+			statement.setBoolean(3, user.getAdmin());
+			statement.setDouble(4, user.getPresupuesto());
+			statement.setDouble(5, user.getTiempo());
+			statement.setString(6, user.getPreferencia());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -140,21 +144,21 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
 	public static void guardar(Usuario usuario, Sugerible sugerencia) throws SQLException {
-		Connection conn= ConnectionProvider.getConnection();
-		
+		Connection conn = ConnectionProvider.getConnection();
+
 		try {
 			conn.setAutoCommit(false);
 			ItinerarioDaoImpl.insert(usuario, sugerencia, conn);
 			UsuarioDaoImpl.update(usuario);
-			if(!sugerencia.esPromo()) {
+			if (!sugerencia.esPromo()) {
 				AtraccionDaoImpl.updateCupo((Atraccion) sugerencia);
 			} else {
 				PromocionDaoImpl prod = new PromocionDaoImpl();
 				prod.updateCupo((Promocion) sugerencia, conn);
 			}
-			
+
 		} catch (SQLException e) {
 			System.out.println("No se pudo realizar la transaccion");
 			conn.rollback();
@@ -164,10 +168,9 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	}
 
 	private Usuario toUsuario(ResultSet userRegister) throws SQLException {
-		return new Usuario(userRegister.getInt(1), userRegister.getString(2), 
-							userRegister.getString(3), userRegister.getBoolean(4),
-							userRegister.getInt(5), userRegister.getDouble(6),
-							userRegister.getString(7));
+		return new Usuario(userRegister.getInt(1), userRegister.getString(2), userRegister.getString(3),
+				userRegister.getBoolean(4), userRegister.getInt(5), userRegister.getDouble(6),
+				userRegister.getString(7));
 	}
 
 }

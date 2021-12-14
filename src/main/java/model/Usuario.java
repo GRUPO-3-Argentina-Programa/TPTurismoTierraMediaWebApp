@@ -1,5 +1,6 @@
 package model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -7,23 +8,18 @@ import java.util.Objects;
 import utils.Crypt;
 
 public class Usuario {
-	@Override
-	public String toString() {
-		return "Usuario [nombre=" + nombre + ", presupuesto=" + presupuesto + ", tiempo=" + tiempo + ", preferencia="
-				+ preferencia + ", TIEMPO=" + TIEMPO + ", PRESUPUESTO=" + PRESUPUESTO + "]";
-	}
-
+	
 	private Integer id;
 	private String nombre, passwordHash;
 	private double presupuesto;
 	private double tiempo;
 	private String preferencia;
 	public List<Sugerible> itinerario;
-	private final double TIEMPO;
-	private final double PRESUPUESTO;
+	
 	protected double totalPagar;
 	protected double totalTiempo;
 	private Boolean admin;
+	private HashMap<String, String> errors;
 
 	public Usuario(Integer id, String nombre,
 					String passwordHash, Boolean admin,
@@ -37,8 +33,16 @@ public class Usuario {
 		this.tiempo = tiempo;
 		this.preferencia = preferencia;
 		this.itinerario = new LinkedList<Sugerible>();
-		this.TIEMPO = tiempo;
-		this.PRESUPUESTO = presupuesto;
+	}
+
+	public Usuario(String nombre, String password,Boolean admin, Integer presupuesto, Double tiempo, String preferencia) {
+		this.nombre = nombre;
+		this.passwordHash = Crypt.hash(password);
+		this.admin = admin;
+		this.presupuesto = presupuesto;
+		this.tiempo = tiempo;
+		this.preferencia = preferencia;
+	
 	}
 
 	public String getNombre() {
@@ -155,14 +159,6 @@ public class Usuario {
 
 	}
 
-	public double getTIEMPO() {
-		return TIEMPO;
-	}
-
-	public double getPRESUPUESTO() {
-		return PRESUPUESTO;
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -210,6 +206,28 @@ public class Usuario {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", presupuesto=" + presupuesto + ", tiempo=" + tiempo + ", preferencia="
+				+ preferencia +"]";
+	}
+
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (presupuesto <= 0) {
+			errors.put("presupuesto", "Debe ser positivo");
+		}
+		if (tiempo <= 0) {
+			errors.put("tiempo", "Debe ser positivo");
+		}
 	}
 
 }

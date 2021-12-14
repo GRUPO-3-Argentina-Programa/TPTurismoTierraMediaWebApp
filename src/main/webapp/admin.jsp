@@ -118,8 +118,9 @@
 		</section>
 	</section>
 
-	<button type="button" class="btn btn-secondary btn-lg">Nuevo
-		Usuario</button>
+	<a href="createU.jsp" class="btn btn-secondary btn-lg" role="button">
+		<i class="bi bi-plus-lg"></i> Nueva Usuario
+	</a>
 
 	<section class="row container-fluid">
 
@@ -141,8 +142,8 @@
 						<tr>
 							<td><c:out value="${usuario.getNombre() }"></c:out></td>
 							<td><c:out value="${usuario.getPassword() }"></c:out></td>
-							<td><c:out value="${usuario.getTIEMPO() }"></c:out></td>
-							<td><c:out value="${usuario.getPRESUPUESTO()}"></c:out></td>
+							<td><c:out value="${usuario.getTiempo() }"></c:out></td>
+							<td><c:out value="${usuario.getPresupuesto()}"></c:out></td>
 							<td><c:out value="${usuario.isAdmin()}"></c:out></td>
 							<td><a href="">Borrar</a> / <a href="">Editar</a></td>
 						</tr>
