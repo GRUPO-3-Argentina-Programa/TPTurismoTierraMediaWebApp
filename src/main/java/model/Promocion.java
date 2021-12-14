@@ -11,6 +11,7 @@ public class Promocion implements Sugerible {
 	protected String[] nombresDeAtracciones;
 	private int id;
 	private String nombre;
+	private boolean activo;
 
 	public Promocion(String nombre, String tipo, List<Atraccion> atraccionesDePromo, int Id) {
 		this.nombre = nombre;
@@ -113,6 +114,14 @@ public class Promocion implements Sugerible {
 	@Override
 	public String getDescripcion() {
 		return this.getNombreAtracciones();
+	}
+	
+	public void borrar(int id) {
+		this.activo = false;
+	}
+	
+	public boolean esActivo() {
+		return activo;
 	}
 
 }

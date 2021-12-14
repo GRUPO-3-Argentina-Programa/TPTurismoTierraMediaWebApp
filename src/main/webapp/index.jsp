@@ -53,22 +53,24 @@
 			<h3 id="promociones" class="text-center bg-warning mt-4 mb-4">PROMOCIONES</h3>
 			<div class="row row-cols-1 row-cols-md-3 g-5 responsive">
 				<c:forEach items="${promociones}" var="promocion">
-					<div class="col">
-						<div class="card h-100 text-white bg-dark border-warning">
-							<img
-								src="assets/imagenes/${promocion.getNombre().replace(' ','')}.jpg"
-								class="card-img-top contenedor-imagen2" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">${promocion.getNombre()}</h5>
-							</div>
-							<div class="card-footer">
-								<button type="button" class="btn btn-primary"
-									data-bs-toggle="modal"
-									data-bs-target="#${promocion.getNombre().replace(' ','')}">
-									Descripción</button>
+					<c:if test="${promocion.esActivo()}">
+						<div class="col">
+							<div class="card h-100 text-white bg-dark border-warning">
+								<img
+									src="assets/imagenes/${promocion.getNombre().replace(' ','')}.jpg"
+									class="card-img-top contenedor-imagen2" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">${promocion.getNombre()}</h5>
+								</div>
+								<div class="card-footer">
+									<button type="button" class="btn btn-primary"
+										data-bs-toggle="modal"
+										data-bs-target="#${promocion.getNombre().replace(' ','')}">
+										Descripción</button>
+								</div>
 							</div>
 						</div>
-					</div>
+					</c:if>
 				</c:forEach>
 			</div>
 		</section>
@@ -82,24 +84,26 @@
 			<div class="row row-cols-1 row-cols-md-3 g-5 responsive">
 
 				<c:forEach items="${atracciones}" var="atraccion">
-					<div class="col">
-						<div class="card h-100 text-white bg-dark border-warning">
-							<img
-								src="assets/imagenes/${atraccion.getNombre().replace(' ','')}.jpg"
-								class="card-img-top contenedor-imagen2" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">${atraccion.getNombre()}</h5>
-								<%-- <p class="card-text">${atraccion.getDescripcion()}</p> --%>
-							</div>
-							<div class="card-footer">
-								<button type="button" class="btn btn-primary"
-									data-bs-toggle="modal"
-									data-bs-target="#${atraccion.getNombre().replace(' ','')}">
-									Descripción</button>
-							</div>
+					<c:if test="${atraccion.esActivo()}">
+						<div class="col">
+							<div class="card h-100 text-white bg-dark border-warning">
+								<img
+									src="assets/imagenes/${atraccion.getNombre().replace(' ','')}.jpg"
+									class="card-img-top contenedor-imagen2" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">${atraccion.getNombre()}</h5>
+									<%-- <p class="card-text">${atraccion.getDescripcion()}</p> --%>
+								</div>
+								<div class="card-footer">
+									<button type="button" class="btn btn-primary"
+										data-bs-toggle="modal"
+										data-bs-target="#${atraccion.getNombre().replace(' ','')}">
+										Descripción</button>
+								</div>
 
+							</div>
 						</div>
-					</div>
+					</c:if>
 				</c:forEach>
 			</div>
 		</section>
@@ -108,85 +112,91 @@
 
 	<!--  Modal PROMOCIONES -->
 	<c:forEach items="${promociones}" var="promocion">
-		<div class="modal fade" id="${promocion.getNombre().replace(' ','')}"
-			tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">${promocion.getNombre()}</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<div class="container mb-3">
-							<img
-								src="assets/imagenes/${promocion.getNombre().replace(' ','')}.jpg"
-								class="card-img-top contenedor-imagen2" alt="...">
+		<c:if test="${promocion.esActivo()}">
+			<div class="modal fade" id="${promocion.getNombre().replace(' ','')}"
+				tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">${promocion.getNombre()}</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
 						</div>
-						<p>
-							<c:if test="${!atraccion.hayCupo() }">
-								<div class="alert alert-danger">
-									<small class="text-muted">SIN CUPO</small>
-								</div>
-							</c:if>
-						</p>
-						<p>${promocion.getDescripcion()}</p>
-						<p>Duración: ${promocion.getTiempoTotal()}</p>
-						<p>Costo: ${promocion.getCosto()}</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cerrar</button>
-						<a href="buy.do?id=${recomendacion.getId()}"
-							class="btn btn-success rounded" role="button">Comprar</a>
+						<div class="modal-body">
+							<div class="container mb-3">
+								<img
+									src="assets/imagenes/${promocion.getNombre().replace(' ','')}.jpg"
+									class="card-img-top contenedor-imagen2" alt="...">
+							</div>
+							<p>
+								<c:if test="${!atraccion.hayCupo() }">
+									<div class="alert alert-danger">
+										<small class="text-muted">SIN CUPO</small>
+									</div>
+								</c:if>
+							</p>
+							<p>${promocion.getDescripcion()}</p>
+							<p>Duración: ${promocion.getTiempoTotal()}</p>
+							<p>Costo: ${promocion.getCosto()}</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Cerrar</button>
+							<a href="buy.do?id=${recomendacion.getId()}"
+								class="btn btn-success rounded" role="button">Comprar</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</c:if>
 	</c:forEach>
 
 	<!--  Modal ATRACCIONES -->
 	<c:forEach items="${atracciones}" var="atraccion">
-		<div class="modal fade" id="${atraccion.getNombre().replace(' ','')}"
-			tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">${atraccion.getNombre()}</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<div class="container mb-3">
-							<img
-								src="assets/imagenes/${atraccion.getNombre().replace(' ','')}.jpg"
-								class="card-img-top contenedor-imagen2" alt="...">
+		<c:if test="${atraccion.esActivo()}">
+			<div class="modal fade" id="${atraccion.getNombre().replace(' ','')}"
+				tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">${atraccion.getNombre()}</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
 						</div>
-						<p>${atraccion.getDescripcion()}</p>
-						<p>Categoría: ${atraccion.getTipoAtraccion()}</p>
-						<p>
-							<c:if test="${!atraccion.hayCupo() }">
-								<div class="alert alert-danger">
-									<small class="text-muted">SIN CUPO</small>
-								</div>
-							</c:if>
-							<c:if test="${atraccion.hayCupo()}"> Cupo disponible: ${atraccion.getCupo()}</c:if>
-						</p>
+						<div class="modal-body">
+							<div class="container mb-3">
+								<img
+									src="assets/imagenes/${atraccion.getNombre().replace(' ','')}.jpg"
+									class="card-img-top contenedor-imagen2" alt="...">
+							</div>
+							<p>${atraccion.getDescripcion()}</p>
+							<p>Categoría: ${atraccion.getTipoAtraccion()}</p>
+							<p>
+								<c:if test="${!atraccion.hayCupo() }">
+									<div class="alert alert-danger">
+										<small class="text-muted">SIN CUPO</small>
+									</div>
+								</c:if>
+								<c:if test="${atraccion.hayCupo()}"> Cupo disponible: ${atraccion.getCupo()}</c:if>
+							</p>
 
-						<p>Duración: ${atraccion.getTiempoTotal()}</p>
-						<p>Costo: ${atraccion.getCosto()}</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cerrar</button>
-						<a href="buy.do?id=${recomendacion.getId()}"
-							class="btn btn-success rounded" role="button">Comprar</a>
+							<p>Duración: ${atraccion.getTiempoTotal()}</p>
+							<p>Costo: ${atraccion.getCosto()}</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Cerrar</button>
+							<a href="buy.do?id=${recomendacion.getId()}"
+								class="btn btn-success rounded" role="button">Comprar</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</c:if>
 	</c:forEach>
 </body>
+
 <footer class="conteiner-md text-dark text-center mt-5 border-dark">
 	ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 - Curso 8</footer>
+
 </html>
