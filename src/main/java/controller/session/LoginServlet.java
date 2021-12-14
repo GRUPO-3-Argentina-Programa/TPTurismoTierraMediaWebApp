@@ -43,6 +43,6 @@ public class LoginServlet extends HttpServlet {
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(req, resp);
-		}
+		} 
 	}
 }

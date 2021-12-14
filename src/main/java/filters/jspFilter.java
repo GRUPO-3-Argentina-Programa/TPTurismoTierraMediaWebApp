@@ -9,8 +9,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
-import jakarta.servlet.http.HttpServletRequest;
-import model.Usuario;
 
 @WebFilter(urlPatterns = "*.jsp")
 public class jspFilter implements Filter {

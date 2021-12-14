@@ -27,6 +27,20 @@
 						<div class="col">
 							<a href="/TPTurismoTierraMediaWebApp/usuariosAdmin/listar">Usuarios</a>
 						</div>
+						<div class="col">
+							<ul class="navbar-nav">
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<c:out value="${user.getNombre()}"></c:out>
+								</a>
+									<ul class="dropdown-menu dropdown-menu-end"
+										aria-labelledby="navbarDropdown">
+										<li><hr class="dropdown-divider"></li>
+										<li><a href="logout" class="dropdown-item">Salir</a></li>
+									</ul></li>
+							</ul>
+						</div>
 
 					</div>
 				</div>
