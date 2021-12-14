@@ -15,7 +15,7 @@
 				<div class="row">
 					<c:if test="${user==null}">
 						<div class="col">
-							<a href="login.jsp">Entrar</a>
+							<a href="login">Entrar</a>
 						</div>
 					</c:if>
 

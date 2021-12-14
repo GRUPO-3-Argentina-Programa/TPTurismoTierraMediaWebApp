@@ -53,7 +53,7 @@
 			<h3 id="promociones" class="text-center bg-warning mt-4 mb-4">PROMOCIONES</h3>
 			<div class="row row-cols-1 row-cols-md-3 g-5 responsive">
 				<c:forEach items="${promociones}" var="promocion">
-					<c:if test="${promocion.esActivo()}">
+				<c:if test="${promocion.esActivo()}"> 
 						<div class="col">
 							<div class="card h-100 text-white bg-dark border-warning">
 								<img
