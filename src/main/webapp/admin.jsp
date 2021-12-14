@@ -34,7 +34,7 @@
 		</div>
 	</nav>
 
-	<a href="Create1.jsp" class="btn btn-secondary btn-lg" role="button">
+	<a href="crear.adm" class="btn btn-secondary btn-lg" role="button">
 		<i class="bi bi-plus-lg"></i> Nueva Atracción
 	</a>
 
