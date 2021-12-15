@@ -129,7 +129,7 @@
 									class="card-img-top contenedor-imagen2" alt="...">
 							</div>
 							<p>
-								<c:if test="${!atraccion.hayCupo() }">
+								<c:if test="${!promocion.hayCupo() }">
 									<div class="alert alert-danger">
 										<small class="text-muted">SIN CUPO</small>
 									</div>
@@ -142,7 +142,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-bs-dismiss="modal">Cerrar</button>
-							<a href="buy.do?id=${recomendacion.getId()}"
+							<a href="comprarPromo.do?id=${promocion.getId()}"
 								class="btn btn-success rounded" role="button">Comprar</a>
 						</div>
 					</div>
@@ -186,7 +186,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-bs-dismiss="modal">Cerrar</button>
-							<a href="buy.do?id=${recomendacion.getId()}"
+							<a href="buy.do?id=${atraccion.getId()}"
 								class="btn btn-success rounded" role="button">Comprar</a>
 						</div>
 					</div>

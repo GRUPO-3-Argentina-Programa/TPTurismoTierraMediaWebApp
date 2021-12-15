@@ -165,8 +165,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			if (!sugerencia.esPromo()) {
 				AtraccionDaoImpl.updateCupo((Atraccion) sugerencia);
 			} else {
-				PromocionDaoImpl prod = new PromocionDaoImpl();
-				prod.updateCupo((Promocion) sugerencia, conn);
+				PromocionDaoImpl.updateCupo((Promocion) sugerencia);
 			}
 
 		} catch (SQLException e) {

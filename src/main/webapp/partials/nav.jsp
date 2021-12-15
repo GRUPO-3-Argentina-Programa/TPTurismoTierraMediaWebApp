@@ -21,6 +21,9 @@
 
 					<c:if test="${user!=null}">
 						<div class="col">
+							<a href="index">Inicio</a>
+						</div>
+						<div class="col">
 							<a href="itinerario.do">Mi itinerario</a>
 						</div>
 						<div class="col">

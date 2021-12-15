@@ -122,7 +122,7 @@ public class Usuario {
 	}
 	
 	public boolean tieneTiempo(Sugerible sugerencia) {
-		return (sugerencia.getCosto() <= this.presupuesto);
+		return (sugerencia.getTiempoTotal() <= this.tiempo);
 	}
 	
 	

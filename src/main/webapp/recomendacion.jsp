@@ -31,35 +31,67 @@
 			<c:forEach items="${recomendaciones}" var="recomendacion">
 				<div class="col">
 					<div class="card h-100 text-white bg-dark border-warning">
-						<img src="assets/imagenes/${recomendacion.getNombre().replace(' ','')}.jpg"
+						<img
+							src="assets/imagenes/${recomendacion.getNombre().replace(' ','')}.jpg"
 							class="card-img-top contenedor-imagen2" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">${recomendacion.getNombre()}</h5>
-							<p class="card-text">${recomendacion.getDescripcion()}</p>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">Precio:
-								${recomendacion.getCosto()} monedas</small>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Duración:
-								${recomendacion.getTiempoTotal()} horas</small>
-						</div>
-						<div class="card-footer">
-							<c:choose>
-								<c:when
-									test="${user.puedeComprar(recomendacion) && recomendacion.hayCupo() }">
-									<a href="buy.do?id=${recomendacion.getId()}"
-										class="btn-primary btn-success rounded" role="button">Comprar</a>
-								</c:when>
-								<c:otherwise>
-									<a href="#" class="btn-secondary rounded disabled"
-										role="button">No Disponible</a>
-								</c:otherwise>
-							</c:choose>
+							<button type="button" class="btn btn-primary"
+								data-bs-toggle="modal"
+								data-bs-target="#${recomendacion.getNombre().replace(' ','')}">
+								Descripción</button>
 						</div>
 					</div>
 				</div>
+
+				<div class="modal fade"
+					id="${recomendacion.getNombre().replace(' ','')}" tabindex="-1"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content text-white bg-dark">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">${recomendacion.getNombre()}</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="container mb-3">
+									<img
+										src="assets/imagenes/${recomendacion.getNombre().replace(' ','')}.jpg"
+										class="card-img-top contenedor-imagen2" alt="...">
+								</div>
+								<p>
+									<c:if test="${!recomendacion.hayCupo() }">
+										<div class="alert alert-danger">
+											<small class="text-muted">SIN CUPO</small>
+										</div>
+									</c:if>
+								</p>
+								<p>${recomendacion.getDescripcion()}</p>
+								<p>Duración: ${recomendacion.getTiempoTotal()}</p>
+								<p>Costo: ${recomendacion.getCosto()}</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Cerrar</button>
+								<c:choose>
+									<c:when test="${recomendacion.esPromo()}">
+										<a href="comprarPromo.do?id=${recomendacion.getId()}"
+											class="btn btn-success rounded" role="button">Comprar</a>
+									</c:when>
+									<c:otherwise>
+										<a href="buy.do?id=${recomendacion.getId()}"
+											class="btn btn-success rounded" role="button">Comprar</a>
+									</c:otherwise>
+								</c:choose>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</c:forEach>
 		</div>
 	</section>

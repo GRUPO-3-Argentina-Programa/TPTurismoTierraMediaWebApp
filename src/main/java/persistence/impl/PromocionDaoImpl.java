@@ -101,9 +101,10 @@ public class PromocionDaoImpl implements PromocionDao{
 		return id_atracciones;
 	}
 	
-	public void updateCupo(Promocion promo, Connection conn) throws SQLException {
+	public static void updateCupo(Promocion promo) throws SQLException {
 
 		Iterator<Atraccion> itr = promo.getAtracciones().iterator();
+		Connection conn = ConnectionProvider.getConnection();
 		
 		while (itr.hasNext()) {
 			Atraccion atr = itr.next();
