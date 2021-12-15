@@ -57,21 +57,23 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		}
 	}
 
-	public int delete(Usuario user) {
+	@Override
+	public int delete (int id) {
 		try {
-			String sql = "DELETE FROM Usuarios WHERE nombre = ?";
+			String sql = "UPDATE Usuarios SET activo = 0 WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, user.getNombre());
+			statement.setInt(1, id);
+			
 			int rows = statement.executeUpdate();
-
 			return rows;
+			
 		} catch (Exception e) {
 			throw new MissingDataException(e);
-		}
+		} 
 	}
-
+	
 	public Usuario findByUsername(String username) {
 		try {
 			String sql = "SELECT * FROM Usuarios WHERE nombre = ?";
@@ -171,7 +173,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	private Usuario toUsuario(ResultSet userRegister) throws SQLException {
 		return new Usuario(userRegister.getInt(1), userRegister.getString(2), userRegister.getString(3),
 				userRegister.getBoolean(4), userRegister.getInt(5), userRegister.getDouble(6),
-				userRegister.getString(7));
+				userRegister.getString(7), userRegister.getBoolean(8));
 	}
 
 }

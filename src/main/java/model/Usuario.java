@@ -15,16 +15,16 @@ public class Usuario {
 	private double tiempo;
 	private String preferencia;
 	public List<Sugerible> itinerario;
-	
 	protected double totalPagar;
 	protected double totalTiempo;
 	private Boolean admin;
 	private HashMap<String, String> errors;
+	private Boolean activo;
 
 	public Usuario(Integer id, String nombre,
 					String passwordHash, Boolean admin,
 					int presupuesto, double tiempo, 
-					String preferencia) {
+					String preferencia, Boolean activo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.passwordHash = passwordHash;
@@ -33,7 +33,9 @@ public class Usuario {
 		this.tiempo = tiempo;
 		this.preferencia = preferencia;
 		this.itinerario = new LinkedList<Sugerible>();
+		this.activo = activo;
 	}
+
 
 	public Usuario(String nombre, String password,Boolean admin, Integer presupuesto, Double tiempo, String preferencia) {
 		this.nombre = nombre;
@@ -42,7 +44,7 @@ public class Usuario {
 		this.presupuesto = presupuesto;
 		this.tiempo = tiempo;
 		this.preferencia = preferencia;
-	
+		
 	}
 
 	public String getNombre() {
@@ -230,4 +232,7 @@ public class Usuario {
 		}
 	}
 
+	public Boolean esActivo() {
+		return activo;
+	}
 }

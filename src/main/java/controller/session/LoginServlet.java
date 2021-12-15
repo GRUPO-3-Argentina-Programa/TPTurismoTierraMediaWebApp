@@ -31,14 +31,14 @@ public class LoginServlet extends HttpServlet {
 
 		Usuario user = loginService.login(username, password);
 
-		if (!user.isNull()) {
+		if (!user.isNull() && user.esActivo()) {
 			req.getSession().setAttribute("user", user);
 			if (user.isAdmin())
 				resp.sendRedirect("listar.adm");
 			else
 				resp.sendRedirect("listar.do");
 
-		} else {
+		} else{
 			req.setAttribute("flash", "Nombre de usuario o contraseña incorrectos");
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");

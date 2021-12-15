@@ -22,6 +22,11 @@ public class UsuarioService {
 		}
 		return usuario;
 	}
+	
+	public int delete(int id) {
+		UsuarioDao usuarioDao = DAOFactory.getUserDAO();
+		return usuarioDao.delete(id);
+	}
 
 }
 

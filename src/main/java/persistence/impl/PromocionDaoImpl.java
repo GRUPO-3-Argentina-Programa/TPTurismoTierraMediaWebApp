@@ -148,13 +148,27 @@ public class PromocionDaoImpl implements PromocionDao{
 		}
 	}
 
-
-
-
 	@Override
 	public int insert(Promocion t) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public int delete (int id) {
+		try {
+			String sql = "UPDATE Promociones SET activo = 0 WHERE atraccion_id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, id);
+			
+			int rows = statement.executeUpdate();
+			return rows;
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		} 
 	}
 
 	

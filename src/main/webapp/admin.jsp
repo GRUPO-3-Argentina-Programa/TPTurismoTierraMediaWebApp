@@ -62,22 +62,23 @@
 						<th scope="col">Nombre</th>
 						<th scope="col">Tiempo</th>
 						<th scope="col">Precio</th>
+						<th scope="col">Activo</th>
 						<th scope="col">Acción</th>
+						
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${ atracciones }" var="atracciones">
-						<c:if test="${atracciones.esActivo()}">
 						<tr>
 							<td><c:out value="${atracciones.getNombre() }"></c:out></td>
 							<td><c:out value="${atracciones.getTiempoTotal() }"></c:out></td>
 							<td><c:out value="${atracciones.getCosto() }"></c:out></td>
+							<td><c:out value="${atracciones.esActivo() }"></c:out></td>
 							<td><a
 								href="atraccion/borrar.adm?id=${ atracciones.getId() }">Borrar</a>
 								/ <a href="atraccionEditar.adm?id=${atracciones.getId()}">Editar</a>
 							</td>
 						</tr>
-					</c:if>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -134,6 +135,7 @@
 						<th scope="col">Tiempo</th>
 						<th scope="col">Presupuesto</th>
 						<th scope="col">Administrador</th>
+						<th scope="col">Activo</th>
 						<th scope="col">Acción</th>
 					</tr>
 				</thead>
@@ -145,7 +147,8 @@
 							<td><c:out value="${usuario.getTiempo() }"></c:out></td>
 							<td><c:out value="${usuario.getPresupuesto()}"></c:out></td>
 							<td><c:out value="${usuario.isAdmin()}"></c:out></td>
-							<td><a href="">Borrar</a> / <a href="">Editar</a></td>
+							<td><c:out value="${usuario.esActivo()}"></c:out></td>
+							<td><a href="borrarUsuario.adm?id=${usuario.getId()}">Borrar</a> / <a href="">Editar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
