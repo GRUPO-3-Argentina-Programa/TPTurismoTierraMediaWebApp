@@ -63,8 +63,13 @@ public class PromocionDaoImpl implements PromocionDao{
 			
 			}			
 		
-		else {
+		if (result.getString(3).equals("absoluta")) {
 			return new PromocionAbs(result.getString(8), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1), result.getBoolean(7));
+		}
+		else {
+
+			return new PromocionAbs(result.getString(8), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1), result.getBoolean(7));
+
 		}
 		
 	}
@@ -145,14 +150,12 @@ public class PromocionDaoImpl implements PromocionDao{
 		}
 	}
 
-
-
-
 	@Override
 	public int insert(Promocion t) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 
 

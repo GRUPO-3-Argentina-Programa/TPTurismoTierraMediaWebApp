@@ -177,7 +177,6 @@ public class Atraccion implements Sugerible {
 	
 	public boolean esActivo() {
 		return activo;
-		
 	}
 	public void setTipo(String tipo2) {
 		this.tipo = tipo2;

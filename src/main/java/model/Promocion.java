@@ -13,7 +13,9 @@ public class Promocion implements Sugerible {
 	private String nombre;
 	private boolean activo;
 
+
 	public Promocion(String nombre, String tipo, List<Atraccion> atraccionesDePromo, int Id, boolean activo) {
+
 		this.nombre = nombre;
 		this.tipoAtraccion = tipo;
 		this.atraccionesDePromo = new LinkedList<Atraccion>(atraccionesDePromo);
@@ -44,7 +46,7 @@ public class Promocion implements Sugerible {
 		}
 		return sumaCostos;
 	}
-	
+
 	public boolean esPromo() {
 		return true;
 	}
@@ -75,11 +77,10 @@ public class Promocion implements Sugerible {
 	public String getNombre() {
 		return this.nombre;
 	}
-	
+
 	public String getNombreAtracciones() {
 		return "Esta promoción incluye: " + Arrays.toString(getNombresDeAtracciones());
 	}
-
 
 	public String toString() {
 
@@ -107,7 +108,6 @@ public class Promocion implements Sugerible {
 				&& tipoAtraccion == other.tipoAtraccion;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
@@ -116,11 +116,11 @@ public class Promocion implements Sugerible {
 	public String getDescripcion() {
 		return this.getNombreAtracciones();
 	}
-	
+
 	public void borrar(int id) {
 		this.activo = false;
 	}
-	
+
 	public boolean esActivo() {
 		return activo;
 	}

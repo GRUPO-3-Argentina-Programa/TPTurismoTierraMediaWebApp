@@ -27,6 +27,20 @@
 						<div class="col">
 							<a href="/TPTurismoTierraMediaWebApp/usuariosAdmin/listar">Usuarios</a>
 						</div>
+						<div class="col">
+							<ul class="navbar-nav">
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<c:out value="${user.getNombre()}"></c:out>
+								</a>
+									<ul class="dropdown-menu dropdown-menu-end"
+										aria-labelledby="navbarDropdown">
+										<li><hr class="dropdown-divider"></li>
+										<li><a href="logout" class="dropdown-item">Salir</a></li>
+									</ul></li>
+							</ul>
+						</div>
 
 					</div>
 				</div>
@@ -34,7 +48,7 @@
 		</div>
 	</nav>
 
-	<a href="Create1.jsp" class="btn btn-secondary btn-lg" role="button">
+	<a href="crear.adm" class="btn btn-secondary btn-lg" role="button">
 		<i class="bi bi-plus-lg"></i> Nueva Atracción
 	</a>
 
@@ -48,22 +62,23 @@
 						<th scope="col">Nombre</th>
 						<th scope="col">Tiempo</th>
 						<th scope="col">Precio</th>
+						<th scope="col">Activo</th>
 						<th scope="col">Acción</th>
+						
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${ atracciones }" var="atracciones">
-						<c:if test="${atracciones.esActivo()}">
 						<tr>
 							<td><c:out value="${atracciones.getNombre() }"></c:out></td>
 							<td><c:out value="${atracciones.getTiempoTotal() }"></c:out></td>
 							<td><c:out value="${atracciones.getCosto() }"></c:out></td>
+							<td><c:out value="${atracciones.esActivo() }"></c:out></td>
 							<td><a
 								href="atraccion/borrar.adm?id=${ atracciones.getId() }">Borrar</a>
 								/ <a href="atraccionEditar.adm?id=${atracciones.getId()}">Editar</a>
 							</td>
 						</tr>
-					</c:if>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -106,8 +121,9 @@
 		</section>
 	</section>
 
-	<button type="button" class="btn btn-secondary btn-lg">Nuevo
-		Usuario</button>
+	<a href="crearUsuario.adm" class="btn btn-secondary btn-lg" role="button">
+		<i class="bi bi-plus-lg"></i> Nuevo Usuario
+	</a>
 
 	<section class="row container-fluid">
 
@@ -121,6 +137,7 @@
 						<th scope="col">Tiempo</th>
 						<th scope="col">Presupuesto</th>
 						<th scope="col">Administrador</th>
+						<th scope="col">Activo</th>
 						<th scope="col">Acción</th>
 					</tr>
 				</thead>
@@ -129,10 +146,11 @@
 						<tr>
 							<td><c:out value="${usuario.getNombre() }"></c:out></td>
 							<td><c:out value="${usuario.getPassword() }"></c:out></td>
-							<td><c:out value="${usuario.getTIEMPO() }"></c:out></td>
-							<td><c:out value="${usuario.getPRESUPUESTO()}"></c:out></td>
+							<td><c:out value="${usuario.getTiempo() }"></c:out></td>
+							<td><c:out value="${usuario.getPresupuesto()}"></c:out></td>
 							<td><c:out value="${usuario.isAdmin()}"></c:out></td>
-							<td><a href="">Borrar</a> / <a href="">Editar</a></td>
+							<td><c:out value="${usuario.esActivo()}"></c:out></td>
+							<td><a href="borrarUsuario.adm?id=${usuario.getId()}">Borrar</a> / <a href="">Editar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

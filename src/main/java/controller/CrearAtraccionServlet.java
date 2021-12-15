@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import services.AtraccionService;
 
-@WebServlet("/crear.do")
+@WebServlet("/crear.adm")
 public class CrearAtraccionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AtraccionService atraccionService;
@@ -25,7 +25,7 @@ public class CrearAtraccionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/Create1.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Create1.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -36,10 +36,10 @@ public class CrearAtraccionServlet extends HttpServlet {
 		String tipo = req.getParameter("tipo");
 		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
-//		Integer id = Integer.parseInt(req.getParameter("Id"));
 		String descripcion = req.getParameter("descripcion");
+//		Integer id = Integer.parseInt(req.getParameter("Id"));
 
-		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo, descripcion );
+		Atraccion atraccion = atraccionService.create(nombre, costo, tipo, tiempo, cupo, descripcion);
 		if (atraccion.isValid()) {
 			resp.sendRedirect("listar.adm");
 		} else {

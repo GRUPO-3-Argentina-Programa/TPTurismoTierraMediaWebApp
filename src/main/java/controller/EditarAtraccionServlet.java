@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -53,7 +52,6 @@ public class EditarAtraccionServlet extends HttpServlet {
 		Atraccion atraccion;
 	
 			atraccion = atraccionService.update(nombre, costo, tipo, tiempo, cupo, id, descripcion);
-		
 		if (atraccion.isValid()) {
 			resp.sendRedirect("listar.adm");
 		} else {

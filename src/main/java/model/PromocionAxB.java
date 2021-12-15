@@ -9,7 +9,9 @@ public class PromocionAxB extends Promocion {
 
 	public Atraccion atraccionRegalo;
 
+
 	public PromocionAxB(String nombre, String tipo, List<Atraccion> atraccionesDePromo, Atraccion atraccionRegalo, int id, boolean activo) {
+
 		super(nombre, tipo, atraccionesDePromo, id, activo);
 		this.atraccionRegalo = atraccionRegalo;
 		this.tiempoTotal = getTiempoTotal();
