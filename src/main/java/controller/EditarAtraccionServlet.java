@@ -51,7 +51,7 @@ public class EditarAtraccionServlet extends HttpServlet {
 	
 			atraccion = atraccionService.update(nombre, costo, tipo, tiempo, cupo, id, descripcion);
 		if (atraccion.isValid()) {
-			resp.sendRedirect("listar.adm");
+			resp.sendRedirect("/webAppTurismoTierraMedia/listar.adm");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 		

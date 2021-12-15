@@ -74,7 +74,7 @@
 							<td><c:out value="${atracciones.esActivo() }"></c:out></td>
 							<td><a
 								href="atraccion/borrar.adm?id=${ atracciones.getId() }">Borrar</a>
-								/ <a href="atraccionEditar.adm?id=${atracciones.getId()}">Editar</a>
+								/ <a href="atraccion/atraccionEditar.adm?id=${atracciones.getId()}">Editar</a>
 							</td>
 						</tr>
 					</c:forEach>

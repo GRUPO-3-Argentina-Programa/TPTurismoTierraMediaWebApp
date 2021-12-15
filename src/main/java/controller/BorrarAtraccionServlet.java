@@ -30,10 +30,12 @@ public class BorrarAtraccionServlet extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 
 		atraccionService.delete(id);
+		
+		resp.sendRedirect("/webAppTurismoTierraMedia/listar.adm");
 
-		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/listar.adm");
-		dispatcher.forward(req, resp);
+//		RequestDispatcher dispatcher = getServletContext()
+//				.getRequestDispatcher("/webAppTurismoTierraMedia/listar.adm");
+//		dispatcher.forward(req, resp);
 	}
 
 	}

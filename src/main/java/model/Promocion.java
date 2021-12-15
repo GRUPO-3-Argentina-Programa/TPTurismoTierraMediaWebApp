@@ -44,7 +44,7 @@ public class Promocion implements Sugerible {
 		for (Atraccion a : atraccionesDePromo) {
 			sumaCostos += a.getCosto();
 		}
-		return sumaCostos;
+		return Math.round(sumaCostos*100)/100.0;
 	}
 
 	public boolean esPromo() {
