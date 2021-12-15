@@ -4,11 +4,9 @@ import persistence.AtraccionDao;
 import persistence.ItinerarioDao;
 import persistence.UsuarioDao;
 import persistence.PromocionDao;
-import persistence.TipoDao;
 import persistence.impl.AtraccionDaoImpl;
 import persistence.impl.ItinerarioDaoImpl;
 import persistence.impl.PromocionDaoImpl;
-import persistence.impl.TipoDaoImpl;
 import persistence.impl.UsuarioDaoImpl;
 
 public class DAOFactory {
@@ -27,10 +25,6 @@ public class DAOFactory {
 	
 	public static ItinerarioDao getItinerarioDao() {
 		return new ItinerarioDaoImpl();
-	}
-	
-	public static TipoDao getTipoDao() {
-		return new TipoDaoImpl();
 	}
 	
 }

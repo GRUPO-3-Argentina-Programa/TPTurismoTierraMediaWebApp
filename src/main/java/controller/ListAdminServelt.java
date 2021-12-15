@@ -11,11 +11,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import model.Promocion;
-import model.Tipo;
 import model.Usuario;
 import services.AtraccionService;
 import services.PromocionService;
-import services.TipoService;
 import services.UsuarioService;
 
 
@@ -26,8 +24,7 @@ public class ListAdminServelt extends HttpServlet {
 	private AtraccionService atraccionService;
 	private PromocionService promocionService;
 	private UsuarioService usuarioService;
-	private TipoService tipoService;
-
+	
 
 	@Override
 	public void init() throws ServletException {
@@ -35,7 +32,6 @@ public class ListAdminServelt extends HttpServlet {
 		this.promocionService = new PromocionService();
 		this.atraccionService = new AtraccionService();
 		this.usuarioService = new UsuarioService();
-		this.tipoService = new TipoService();
 	}
 
 	@Override
@@ -48,9 +44,6 @@ public class ListAdminServelt extends HttpServlet {
 
 		List<Usuario> usuarios = usuarioService.list();
 		req.setAttribute("usuarios", usuarios);
-
-		List<Tipo> tipos = tipoService.list();
-		req.setAttribute("tipos", tipos);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
 		dispatcher.forward(req, resp);
