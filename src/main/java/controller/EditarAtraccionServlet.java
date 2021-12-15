@@ -12,7 +12,7 @@ import model.Atraccion;
 import services.AtraccionService;
 
 
-@WebServlet("/atraccion/atraccionEditar.adm")
+@WebServlet("/atraccionEditar.adm")
 public class EditarAtraccionServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = -6382169226339328447L;
@@ -51,7 +51,7 @@ public class EditarAtraccionServlet extends HttpServlet {
 	
 			atraccion = atraccionService.update(nombre, costo, tipo, tiempo, cupo, id, descripcion);
 		if (atraccion.isValid()) {
-			resp.sendRedirect("/webAppTurismoTierraMedia/listar.adm");
+			resp.sendRedirect("listar.adm");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 		
