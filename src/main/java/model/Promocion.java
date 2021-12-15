@@ -13,11 +13,12 @@ public class Promocion implements Sugerible {
 	private String nombre;
 	private boolean activo;
 
-	public Promocion(String nombre, String tipo, List<Atraccion> atraccionesDePromo, int Id) {
+	public Promocion(String nombre, String tipo, List<Atraccion> atraccionesDePromo, int Id, boolean activo) {
 		this.nombre = nombre;
 		this.tipoAtraccion = tipo;
 		this.atraccionesDePromo = new LinkedList<Atraccion>(atraccionesDePromo);
 		this.id = Id;
+		this.activo = activo;
 	}
 
 	public String getTipoAtraccion() {

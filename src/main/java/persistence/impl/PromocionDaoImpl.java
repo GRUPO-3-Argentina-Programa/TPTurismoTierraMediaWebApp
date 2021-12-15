@@ -53,18 +53,18 @@ public class PromocionDaoImpl implements PromocionDao{
       
 		
 		if (result.getString(3).equals("porcentual")) {
-			return new PromocionPorcentual(result.getString(8), result.getString(2), atraccionesDePromo, result.getDouble(4), result.getInt(1));
+			return new PromocionPorcentual(result.getString(8), result.getString(2), atraccionesDePromo, result.getDouble(4), result.getInt(1), result.getBoolean(7));
 		}
 
 		if (result.getString(3).equals("AxB")) {
 			 AtraccionDaoImpl atrac = new AtraccionDaoImpl();
 			
-				return new PromocionAxB(result.getString(8), result.getString(2), atraccionesDePromo, atrac.find(result.getInt(6)), result.getInt(1));
+				return new PromocionAxB(result.getString(8), result.getString(2), atraccionesDePromo, atrac.find(result.getInt(6)), result.getInt(1), result.getBoolean(7));
 			
 			}			
 		
 		else {
-			return new PromocionAbs(result.getString(8), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1));
+			return new PromocionAbs(result.getString(8), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1), result.getBoolean(7));
 		}
 		
 	}
@@ -152,6 +152,26 @@ public class PromocionDaoImpl implements PromocionDao{
 	public int insert(Promocion t) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+
+
+
+	@Override
+	public int delete(int id) {
+		try {
+			String sql = "UPDATE Promociones SET activo = 0 WHERE promo_id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, id);
+			
+			int rows = statement.executeUpdate();
+			return rows;
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		} 
 	}
 
 	

@@ -5,4 +5,6 @@ import persistence.commons.GenericDAO;
 
 public interface PromocionDao extends GenericDAO<Promocion>{
 
+	int delete(int id);
+
 }
