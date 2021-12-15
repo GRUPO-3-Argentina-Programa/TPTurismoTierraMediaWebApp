@@ -19,13 +19,11 @@
 				</div>
 				<div class="container-fluid" id="nav2">
 					<div class="row">
-						<a href="/TPTurismoTierraMediaWebApp/atraccionesAdmin/listar"
-							class="col">Atracciones</a>
 						<div class="col">
-							<a href="/TPTurismoTierraMediaWebApp/promocionAdmin/listar">Promociones</a>
+							<a href="index">Inicio</a>
 						</div>
 						<div class="col">
-							<a href="/TPTurismoTierraMediaWebApp/usuariosAdmin/listar">Usuarios</a>
+							<a href="compras.adm">Compras</a>
 						</div>
 						<div class="col">
 							<ul class="navbar-nav">
@@ -64,7 +62,7 @@
 						<th scope="col">Precio</th>
 						<th scope="col">Activo</th>
 						<th scope="col">Acción</th>
-						
+
 					</tr>
 				</thead>
 				<tbody>
@@ -106,14 +104,15 @@
 				<tbody>
 					<c:forEach items="${ promociones }" var="promocion">
 						<c:if test="${promocion.esActivo()}">
-						<tr>
-							<td><c:out value="${promocion.getNombre() }"></c:out></td>
-							<td><c:out value="${promocion.getTipoAtraccion() }"></c:out></td>
-							<td><c:out value="${promocion.getTiempoTotal() }"></c:out></td>
-							<td><c:out value="${promocion.getCosto() }"></c:out></td>
-							<td><a href="borrarPromocion.adm?id=${ promocion.getId() }">Borrar</a> / <a href="">Editar</a></td>
-						</tr>
-					</c:if>
+							<tr>
+								<td><c:out value="${promocion.getNombre() }"></c:out></td>
+								<td><c:out value="${promocion.getTipoAtraccion() }"></c:out></td>
+								<td><c:out value="${promocion.getTiempoTotal() }"></c:out></td>
+								<td><c:out value="${promocion.getCosto() }"></c:out></td>
+								<td><a href="borrarPromocion.adm?id=${ promocion.getId() }">Borrar</a>
+									/ <a href="">Editar</a></td>
+							</tr>
+						</c:if>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -121,8 +120,8 @@
 		</section>
 	</section>
 
-	<a href="crearUsuario.adm" class="btn btn-secondary btn-lg" role="button">
-		<i class="bi bi-plus-lg"></i> Nuevo Usuario
+	<a href="crearUsuario.adm" class="btn btn-secondary btn-lg"
+		role="button"> <i class="bi bi-plus-lg"></i> Nuevo Usuario
 	</a>
 
 	<section class="row container-fluid">
@@ -150,19 +149,19 @@
 							<td><c:out value="${usuario.getPresupuesto()}"></c:out></td>
 							<td><c:out value="${usuario.isAdmin()}"></c:out></td>
 							<td><c:out value="${usuario.esActivo()}"></c:out></td>
-							<td><a href="borrarUsuario.adm?id=${usuario.getId()}">Borrar</a> / 
-							<a href="editarUsuario.adm?id=${usuario.getId()}">Editar</a></td>
+							<td><a href="borrarUsuario.adm?id=${usuario.getId()}">Borrar</a>
+								/ <a href="editarUsuario.adm?id=${usuario.getId()}">Editar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</section>
 	</section>
-	
+
 	<a href="crearTipo.adm" class="btn btn-secondary btn-lg" role="button">
 		<i class="bi bi-plus-lg"></i> Nuevo Tipo
 	</a>
-	
+
 	<section class="row container-fluid">
 
 		<section class="container mt-5 mb-5">
@@ -180,7 +179,8 @@
 						<tr>
 							<td><c:out value="${tipo.getNombre()}"></c:out></td>
 							<td><c:out value="${tipo.esActivo()}"></c:out></td>
-							<td><a href="borrarTipo.adm?tipo=${tipo.getNombre()}">Borrar</a> / <a href="">Editar</a></td>
+							<td><a href="borrarTipo.adm?tipo=${tipo.getNombre()}">Borrar</a>
+								/ <a href="">Editar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

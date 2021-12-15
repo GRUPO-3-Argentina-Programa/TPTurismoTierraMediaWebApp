@@ -50,6 +50,8 @@
 												style="color: gold;" class="bi bi-coin"></i> <c:out
 													value="Preferencia: ${user.getPreferencia()}"></c:out>
 										</a></li>
+										<c:if test="${user.isAdmin()}"><li><a href="listar.adm" class="dropdown-item">Admin</a>
+										</li></c:if>
 										<li><hr class="dropdown-divider"></li>
 										<li><a href="logout" class="dropdown-item">Salir</a></li>
 									</ul></li>
