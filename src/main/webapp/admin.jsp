@@ -148,7 +148,8 @@
 							<td><c:out value="${usuario.getPresupuesto()}"></c:out></td>
 							<td><c:out value="${usuario.isAdmin()}"></c:out></td>
 							<td><c:out value="${usuario.esActivo()}"></c:out></td>
-							<td><a href="borrarUsuario.adm?id=${usuario.getId()}">Borrar</a> / <a href="">Editar</a></td>
+							<td><a href="borrarUsuario.adm?id=${usuario.getId()}">Borrar</a> / 
+							<a href="editarUsuario.adm?id=${usuario.getId()}">Editar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

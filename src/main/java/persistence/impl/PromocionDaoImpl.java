@@ -43,9 +43,6 @@ public class PromocionDaoImpl implements PromocionDao{
 				throw new MissingDataException(e);
 			}
 		}
-		
-		
-	
 
 	private Promocion toTipoPromocion(ResultSet result) throws SQLException {
 		atraccionesDePromo = new LinkedList<Atraccion>();
@@ -71,7 +68,6 @@ public class PromocionDaoImpl implements PromocionDao{
 		}
 		
 	}
-	
 
 	private List<Atraccion> getAtraccionesDePromo(List<Integer> id_atracciones) throws SQLException {
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
@@ -123,8 +119,6 @@ public class PromocionDaoImpl implements PromocionDao{
 		
 	}
 	
-	
-	
 	@Override
 	public  Promocion find(Integer id)  {
 		try {
@@ -169,6 +163,12 @@ public class PromocionDaoImpl implements PromocionDao{
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		} 
+	}
+
+	@Override
+	public int update(Promocion promocion) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	

@@ -1,4 +1,4 @@
-package controller;
+package controller.usuario;
 
 import java.io.IOException;
 
@@ -12,24 +12,26 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Usuario;
 import services.UsuarioService;
 
-
-@WebServlet("/crearUsuario.adm")
-public class CrearUsuarioServlet extends HttpServlet implements Servlet {
-
-	private static final long serialVersionUID = -1047363622015119142L;
-
+@WebServlet("/editarUsuario.adm")
+public class EditarUsuarioServlet extends HttpServlet implements Servlet {
+	private static final long serialVersionUID = -7447534953866974348L;
+	
 	private UsuarioService usuarioService;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.usuarioService = new UsuarioService();
+		
 	}
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/createU.jsp");
+		Usuario usuario = usuarioService.find(id);
+		req.setAttribute("usuario", usuario);
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/editarUsuario.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -41,17 +43,18 @@ public class CrearUsuarioServlet extends HttpServlet implements Servlet {
 		Integer presupuesto = Integer.parseInt(req.getParameter("presupuesto"));
 		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
 		String preferencia = req.getParameter("preferencia");
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		Boolean activo = Boolean.parseBoolean(req.getParameter("activo"));
 
-		Usuario usuario = usuarioService.create(nombre, password, admin, presupuesto, tiempo, preferencia);
+		Usuario usuario = usuarioService.update(nombre, password, admin, presupuesto, tiempo, preferencia, id, activo);
 		if (usuario.isValid()) {
-			resp.sendRedirect("listar.adm");
+			resp.sendRedirect("/webAppTurismoTierraMedia/listar.adm");
 		} else {
 			req.setAttribute("usuario", usuario);
-
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/createU.jsp");
+		
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
 			dispatcher.forward(req, resp);
 		}
-
 	}
 
 }

@@ -3,6 +3,7 @@ package model;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import utils.Crypt;
@@ -234,5 +235,17 @@ public class Usuario {
 
 	public Boolean esActivo() {
 		return activo;
+	}
+	
+	public void setActivo(Boolean activo) {
+		this.activo = activo;
+	}
+
+	public void setPreferencia(String preferencia) {
+		this.preferencia = preferencia;
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
 	}
 }

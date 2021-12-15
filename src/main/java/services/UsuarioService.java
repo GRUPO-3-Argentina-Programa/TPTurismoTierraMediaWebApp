@@ -28,6 +28,30 @@ public class UsuarioService {
 		return usuarioDao.delete(id);
 	}
 
+	public Usuario update(String nombre, String password,Boolean admin, Integer presupuesto, Double tiempo, String preferencia, int id, Boolean activo)  {
+
+		UsuarioDao usuarioDao = DAOFactory.getUserDAO();
+		Usuario usuario = usuarioDao.find(id);
+
+		usuario.setNombre(nombre);
+		usuario.setPassword(password);
+		usuario.setAdmin(admin);
+		usuario.setPresupuesto(presupuesto);
+		usuario.setTiempo(tiempo);
+		usuario.setPreferencia(preferencia);
+		usuario.setActivo(activo);
+
+		if (usuario.isValid()) {
+			usuarioDao.update(usuario);
+		}
+
+		return usuario;
+	}
+
+	public Usuario find(Integer id) {
+		UsuarioDao usuarioDao = DAOFactory.getUserDAO();
+		return usuarioDao.find(id);
+	}
 }
 
 

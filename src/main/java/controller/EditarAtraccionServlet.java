@@ -12,10 +12,8 @@ import model.Atraccion;
 import services.AtraccionService;
 
 
-@WebServlet("/atraccionEditar.adm")
+@WebServlet("/atraccion/atraccionEditar.adm")
 public class EditarAtraccionServlet extends HttpServlet {
-	
-	
 	
 	private static final long serialVersionUID = -6382169226339328447L;
 	private AtraccionService atraccionService;

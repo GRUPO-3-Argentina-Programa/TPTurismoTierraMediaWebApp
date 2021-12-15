@@ -39,7 +39,8 @@ public class ComprarAtraccionService {
 			
 			try {
 				UsuarioDaoImpl.guardar(usuario, atraccion);
-				UsuarioDaoImpl.update(usuario);
+				UsuarioDaoImpl usuarioDaoImpl = new UsuarioDaoImpl();
+				usuarioDaoImpl.update(usuario);
 				AtraccionDaoImpl.updateCupo(atraccion);
 			} catch (SQLException e) {
 				e.printStackTrace();

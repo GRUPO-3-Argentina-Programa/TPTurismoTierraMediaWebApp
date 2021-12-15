@@ -40,15 +40,21 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		}
 	}
 
-	public static int update(Usuario user) {
+	public int update(Usuario user) {
 		try {
-			String sql = "UPDATE Usuarios SET presupuesto = ?, tiempoDisponible = ? WHERE id = ?";
+			String sql = "UPDATE Usuarios SET nombre = ?, passwordHash = ?,"
+					+ "presupuesto = ?, tiempoDisponible = ?, "
+					+ " preferencia = ?, activo = ? WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setDouble(1, user.getPresupuesto());
-			statement.setDouble(2, user.getTiempo());
-			statement.setDouble(3, user.getId());
+			statement.setString(1, user.getNombre());
+			statement.setString(2, user.getPassword());
+			statement.setDouble(3, user.getPresupuesto());
+			statement.setDouble(4, user.getTiempo());
+			statement.setString(5, user.getPreferencia());
+			statement.setBoolean(6, user.esActivo());
+			statement.setInt(7, user.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -154,7 +160,8 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		try {
 			conn.setAutoCommit(false);
 			ItinerarioDaoImpl.insert(usuario, sugerencia, conn);
-			UsuarioDaoImpl.update(usuario);
+			UsuarioDaoImpl usuarioDaoImpl = new UsuarioDaoImpl();
+			usuarioDaoImpl.update(usuario);
 			if (!sugerencia.esPromo()) {
 				AtraccionDaoImpl.updateCupo((Atraccion) sugerencia);
 			} else {
