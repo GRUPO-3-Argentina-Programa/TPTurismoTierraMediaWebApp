@@ -157,6 +157,35 @@
 			</table>
 		</section>
 	</section>
+	
+	<a href="crearTipo.adm" class="btn btn-secondary btn-lg" role="button">
+		<i class="bi bi-plus-lg"></i> Nuevo Tipo
+	</a>
+	
+	<section class="row container-fluid">
+
+		<section class="container mt-5 mb-5">
+
+			<table class="table table-striped table-dark table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Activo</th>
+						<th scope="col">Acción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${tipos}" var="tipo">
+						<tr>
+							<td><c:out value="${tipo.getNombre()}"></c:out></td>
+							<td><c:out value="${tipo.esActivo()}"></c:out></td>
+							<td><a href="borrarTipo.adm?tipo=${tipo.getNombre()}">Borrar</a> / <a href="">Editar</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</section>
+	</section>
 </body>
 <footer class="conteiner-md text-dark text-center mt-5 border-dark">
 	ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 - Curso 8</footer>
