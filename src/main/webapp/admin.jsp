@@ -105,13 +105,15 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${ promociones }" var="promocion">
+						<c:if test="${promocion.esActivo()}">
 						<tr>
 							<td><c:out value="${promocion.getNombre() }"></c:out></td>
 							<td><c:out value="${promocion.getTipoAtraccion() }"></c:out></td>
 							<td><c:out value="${promocion.getTiempoTotal() }"></c:out></td>
 							<td><c:out value="${promocion.getCosto() }"></c:out></td>
-							<td><a href="">Borrar</a> / <a href="">Editar</a></td>
+							<td><a href="borrarPromocion.adm?id=${ promocion.getId() }">Borrar</a> / <a href="">Editar</a></td>
 						</tr>
+					</c:if>
 					</c:forEach>
 				</tbody>
 			</table>

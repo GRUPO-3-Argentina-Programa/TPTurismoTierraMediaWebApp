@@ -64,7 +64,9 @@ public class PromocionDaoImpl implements PromocionDao{
 			return new PromocionAbs(result.getString(8), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1), result.getBoolean(7));
 		}
 		else {
-			return null;
+
+			return new PromocionAbs(result.getString(8), result.getString(2), atraccionesDePromo, result.getInt(5), result.getInt(1), result.getBoolean(7));
+
 		}
 		
 	}
@@ -147,11 +149,15 @@ public class PromocionDaoImpl implements PromocionDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+
+
+
+
+
 	@Override
-	public int delete (int id) {
+	public int delete(int id) {
 		try {
-			String sql = "UPDATE Promociones SET activo = 0 WHERE atraccion_id = ?";
+			String sql = "UPDATE Promociones SET activo = 0 WHERE promo_id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
