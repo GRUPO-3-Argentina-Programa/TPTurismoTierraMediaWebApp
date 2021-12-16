@@ -47,38 +47,35 @@
 	</nav>
 
 	<section class="row container-fluid">
-		<c:forEach items="${usuarios}" var="usuario">
-			<c:if test="${usuario.getItinerario().size()>0}">
-			<div id="titulo" class="mb-0">
-				<h5 class="display-1">
-					Usuario:
-					<c:out value="${usuario.getNombre()}"></c:out>
-					compró:
-				</h5>
-			</div>
-			<section class="container mt-5 mb-5">
-				<table class="table table-striped table-dark table-hover">
-					<thead>
+
+					<table class="table table-striped table-dark table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Tiempo</th>
+						<th scope="col">Presupuesto</th>
+						<th scope="col">Itinerario</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${ usuarios }" var="usuario">
 						<tr>
-							<th scope="col">Nombre</th>
-							<th scope="col">Tiempo</th>
-							<th scope="col">Precio</th>
+							<td><c:out value="${usuario.getNombre() }"></c:out></td>
+							<td><c:out value="${usuario.getTiempo() }"></c:out></td>
+							<td><c:out value="${usuario.getPresupuesto()}"></c:out></td>
+							<td><c:out value="${usuario.getItineraio()}"></c:out></td>
+						
+							
 						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${usuario.getItinerario()}" var="compra">
-							<tr>
-								<td><c:out value="${compra.getNombre() }"></c:out></td>
-								<td><c:out value="${compra.getTiempoTotal() }"></c:out></td>
-								<td><c:out value="${compra.getCosto() }"></c:out></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</section>
-			</c:if>
-		</c:forEach>
+					</c:forEach>
+				</tbody>
+			</table>
+		
 	</section>
+
+
+
 </body>
 <footer class="conteiner-md text-dark text-center mt-5 border-dark">
 	ARGENTINA PROGRAMA - Yo Programo 2021 - Grupo 3 - Curso 8</footer>

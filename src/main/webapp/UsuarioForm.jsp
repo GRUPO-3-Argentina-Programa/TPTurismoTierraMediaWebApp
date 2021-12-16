@@ -38,14 +38,16 @@
 	</div>
 	<div class="mb-3">
 		<div class="col-12">
-			<label for="tipo" class="col-form-label">Preferencia:</label> <select
+			<label for="preferencia" class="col-form-label">Preferencia:</label> <select
 				class="form-select" id="preferencia" name="preferencia">
 				<option selected>Seleccione una opcion</option>
-				<option value="AVENTURA" name="preferencia">AVENTURA</option>
-				<option value="DEGUSTACION" name="preferencia">DEGUSTACION</option>
-				<option value="TERROR" name="preferencia">TERROR</option>
-				<option value="PAISAJE" name="preferencia">PAISAJE</option>
-			</select>
+				<c:forEach items="${ tipos }" var="tipo">
+				<c:if test="${tipo.esActivo()}">
+				<option value="tipo.nonbre" name="tipo">${tipo.getNombre()}</option>
+				</c:if>
+				</c:forEach>
+				</select>
+				
 
 
 		</div>

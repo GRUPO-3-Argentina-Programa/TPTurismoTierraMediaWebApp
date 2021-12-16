@@ -52,13 +52,14 @@
 				<div class="mb-3">
 					<div class="col-12">
 						<label for="preferencia" class="col-form-label">Preferencia:</label> <select
-							class="form-select" id="preferencia" name="preferencia">
-							<option selected>Seleccione una opcion</option>
-							<option value="AVENTURA">AVENTURA</option>
-							<option value="DEGUSTACION">DEGUSTACION</option>
-							<option value="TERROR">TERROR</option>
-							<option value="PAISAJE">PAISAJE</option>
-						</select>
+				class="form-select" id="preferencia" name="preferencia">
+				<option selected>Seleccione una opcion</option>
+				<c:forEach items="${ tipos }" var="tipo">
+				<c:if test="${tipo.esActivo()}">
+				<option value="tipo.nonbre" name="tipo">${tipo.getNombre()}</option>
+				</c:if>
+				</c:forEach>
+				</select>
 					</div>
 				</div>
 				<div class="mb-3">

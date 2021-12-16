@@ -18,13 +18,13 @@
 	</div>
 	
 	<div class="mb-3">
-		<div class="col-12">
-			<label for="tipo" class="col-form-label">Tipo Atraccion:</label> <select
-				class="form-select" id="tipoAtracciones"  name="tipoAtracciones">
+				<div class="col-12">
+			<label for="tipo" class="col-form-label">tipo Atracción:</label> <select
+				class="form-select" id="tipo" name="tipo">
 				<option selected>Seleccione una opcion</option>
-					<c:forEach items="${ tipos }" var="tipo">
-				<c:if test="tipo.adm?nombre=${tipo.getNombre()}">
-				<option value="tipo.getNombre()" name="tipos">${tipo.getNombre()}</option>
+				<c:forEach items="${ tipos }" var="tipo">
+				<c:if test="${tipo.esActivo()}">
+				<option value="tipo.nonbre" name="tipo">${tipo.getNombre()}</option>
 				</c:if>
 				</c:forEach>
 			</select>

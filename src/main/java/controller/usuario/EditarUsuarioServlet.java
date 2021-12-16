@@ -1,6 +1,7 @@
 package controller.usuario;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
@@ -9,7 +10,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Tipo;
 import model.Usuario;
+import services.TipoService;
 import services.UsuarioService;
 
 @WebServlet("/editarUsuario.adm")
@@ -17,11 +20,13 @@ public class EditarUsuarioServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = -7447534953866974348L;
 	
 	private UsuarioService usuarioService;
+	private TipoService tipoService;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.usuarioService = new UsuarioService();
+		this.tipoService = new TipoService();
 		
 	}
 	@Override
@@ -30,7 +35,10 @@ public class EditarUsuarioServlet extends HttpServlet implements Servlet {
 
 		Usuario usuario = usuarioService.find(id);
 		req.setAttribute("usuario", usuario);
-
+		
+		List<Tipo> tipos = tipoService.list();
+		req.setAttribute("tipos", tipos);
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/editarUsuario.jsp");
 		dispatcher.forward(req, resp);
 	}

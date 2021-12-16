@@ -15,17 +15,17 @@
 		</div>
 	</div>
 	<div class="mb-3">
-		<div class="col-12">
-			<label for="tipo" class="col-form-label">Tipo Atraccion:</label> <select
-				class="form-select" id="tipo"  name="tipo">
+			<div class="col-12">
+			<label for="tipo" class="col-form-label">Tipo Atracción:</label> <select
+				class="form-select" id="tipo" name="tipo">
 				<option selected>Seleccione una opcion</option>
-				<option value="AVENTURA"  name="tipo">AVENTURA</option>
-				<option value="DEGUSTACION"  name="tipo">DEGUSTACION</option>
-				<option value="TERROR"  name="tipo">TERROR</option>
-				<option value="PAISAJE"  name="tipo">PAISAJE</option>
+				<c:forEach items="${ tipos }" var="tipo">
+				<c:if test="${tipo.esActivo()}">
+				<option value="tipo.nonbre" name="tipo">${tipo.getNombre()}</option>
+				</c:if>
+				</c:forEach>
+				
 			</select>
-
-
 		</div>
 	</div>
 
