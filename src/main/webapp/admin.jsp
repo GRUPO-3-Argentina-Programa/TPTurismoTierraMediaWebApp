@@ -178,7 +178,6 @@
 							<td><c:out value="${tipo.getNombre()}"></c:out></td>
 							<td><c:out value="${tipo.esActivo()}"></c:out></td>
 							<td><a href="borrarTipo.adm?tipo=${tipo.getNombre()}">Borrar</a>
-								/ <a href="">Editar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

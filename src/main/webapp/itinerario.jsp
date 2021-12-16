@@ -13,10 +13,16 @@
 	<section class="container mt-5 mb-5">
 		<h2 class="text-white">Su itinerario incluye:</h2>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<c:if test="${sugeribles.size()==0 }">
+				<div class="alert alert-danger">
+								<h4>Aún no ha realizado compras.</h4>
+							</div>
+			</c:if>
 			<c:forEach items="${sugeribles}" var="sugerible">
 				<div class="col">
 					<div class="card h-100 text-white bg-dark border-warning">
-						<img src="assets/imagenes/${sugerible.getNombre().replace(' ','')}.jpg"
+						<img
+							src="assets/imagenes/${sugerible.getNombre().replace(' ','')}.jpg"
 							class="card-img-top contenedor-imagen2" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">${sugerible.getNombre()}</h5>

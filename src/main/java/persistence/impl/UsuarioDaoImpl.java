@@ -182,4 +182,5 @@ public class UsuarioDaoImpl implements UsuarioDao {
 				userRegister.getString(7), userRegister.getBoolean(8));
 	}
 
+	
 }
