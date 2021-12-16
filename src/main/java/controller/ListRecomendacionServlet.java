@@ -39,6 +39,7 @@ public class ListRecomendacionServlet extends HttpServlet implements Servlet {
 		}
 		
 		req.setAttribute("recomendaciones", recomendaciones);
+		req.setAttribute("usuario", us);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/recomendacion.jsp");
 		dispatcher.forward(req, resp);

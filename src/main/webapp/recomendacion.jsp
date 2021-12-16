@@ -28,7 +28,10 @@
 
 	<section class="container mt-5 mb-5">
 		<div class="row row-cols-1 row-cols-md-3 g-4">
+			
 			<c:forEach items="${recomendaciones}" var="recomendacion">
+					<c:if test="${recomendacion.esActivo() && usuario.puedeComprar(recomendacion) && recomendacion.hayCupo()}">
+				
 				<div class="col">
 					<div class="card h-100 text-white bg-dark border-warning">
 						<img
@@ -91,9 +94,15 @@
 						</div>
 					</div>
 				</div>
-
-			</c:forEach>
-		</div>
+					</c:if>
+					</c:forEach>
+									
+			
+				
+        </div>
+        
+		
+		
 	</section>
 </body>
 <footer class="conteiner-md text-dark text-center mt-5 border-dark">

@@ -22,10 +22,11 @@
 			<label for="tipo" class="col-form-label">Tipo Atraccion:</label> <select
 				class="form-select" id="tipoAtracciones"  name="tipoAtracciones">
 				<option selected>Seleccione una opcion</option>
-				<option value="AVENTURA"  name="tipo">AVENTURA</option>
-				<option value="DEGUSTACION"  name="tipo">DEGUSTACION</option>
-				<option value="TERROR"  name="tipo">TERROR</option>
-				<option value="PAISAJE"  name="tipo">PAISAJE</option>
+					<c:forEach items="${ tipos }" var="tipo">
+				<c:if test="tipo.adm?nombre=${tipo.getNombre()}">
+				<option value="tipo.getNombre()" name="tipos">${tipo.getNombre()}</option>
+				</c:if>
+				</c:forEach>
 			</select>
 		</div>
 	</div>

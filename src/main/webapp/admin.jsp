@@ -132,7 +132,6 @@
 				<thead>
 					<tr>
 						<th scope="col">Nombre</th>
-						<th scope="col">Password</th>
 						<th scope="col">Tiempo</th>
 						<th scope="col">Presupuesto</th>
 						<th scope="col">Administrador</th>
@@ -144,7 +143,6 @@
 					<c:forEach items="${ usuarios }" var="usuario">
 						<tr>
 							<td><c:out value="${usuario.getNombre() }"></c:out></td>
-							<td><c:out value="${usuario.getPassword() }"></c:out></td>
 							<td><c:out value="${usuario.getTiempo() }"></c:out></td>
 							<td><c:out value="${usuario.getPresupuesto()}"></c:out></td>
 							<td><c:out value="${usuario.isAdmin()}"></c:out></td>
